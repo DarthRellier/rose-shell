@@ -8,6 +8,7 @@ import qs.sidebar
 import qs.popups.osd
 import qs.popups.notifications
 import qs.popups.chords
+import qs.lockscreen
 
 Scope {
     Sidebar {}
@@ -21,4 +22,6 @@ Scope {
     AppChordList {}
 
     PowerChordList {}
+
+    Lockscreen {}
 }
