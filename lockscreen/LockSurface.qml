@@ -2,74 +2,94 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
+import Qt.labs.folderlistmodel
 import QtQuick.Controls.Fusion
 import Quickshell.Wayland
 import qs
 
 WlSessionLockSurface {
-	id: root
-	required property LockContext context
+    id: root
+    required property LockContext context
 
-	color: Theme.surface
+    color: Theme.surface
 
-	Button {
-		text: "Its not working, let me out!"
-		onClicked: root.context.unlocked();
-	}
+    Image {
+        anchors.fill: parent
+        source: getRandomPaper()
+        fillMode: Qt.PreserveAspectCrop
 
-	ColumnLayout {
-		// Uncommenting this will make the password entry invisible except on the active monitor.
-		// visible: Window.active
+        FolderListModel {
+            id: folderListModel
+            folder: Qt.resolvedUrl("../assets/lockscreen-papers")
+            nameFilters: ["*.jpg", "*.png"]
+            showDirs: false
+        }
 
-		anchors {
-			horizontalCenter: parent.horizontalCenter
-			top: parent.verticalCenter
-		}
+        function getRandomPaper() {
+            var randomIndex = Math.floor(Math.random() * folderListModel.count)
+            return folderListModel.get(randomIndex, "fileUrl")
+        }
+    }
 
-		RowLayout {
-			TextField {
-				id: passwordBox
+    Button {
+        text: "It's not working, let me out!"
+        onClicked: root.context.unlocked()
+    }
 
-				implicitWidth: 400
-				padding: 10
+    ColumnLayout {
+        // Uncommenting this will make the password entry invisible except on the active monitor.
+        // visible: Window.active
 
-				focus: true
-				enabled: !root.context.unlockInProgress
-				echoMode: TextInput.Password
-				inputMethodHints: Qt.ImhSensitiveData
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            top: parent.verticalCenter
+        }
 
-				// Update the text in the context when the text in the box changes.
-				onTextChanged: root.context.currentText = this.text;
+        RowLayout {
+            TextField {
+                id: passwordBox
 
-				// Try to unlock when enter is pressed.
-				onAccepted: root.context.tryUnlock();
+                implicitWidth: 400
+                padding: 10
 
-				// Update the text in the box to match the text in the context.
-				// This makes sure multiple monitors have the same text.
-				Connections {
-					target: root.context
+                focus: true
+                enabled: !root.context.unlockInProgress
+                echoMode: TextInput.Password
+                inputMethodHints: Qt.ImhSensitiveData
 
-					function onCurrentTextChanged() {
-						passwordBox.text = root.context.currentText;
-					}
-				}
-			}
+                // Update the text in the context when the text in the box changes.
+                onTextChanged: root.context.currentText = this.text
 
-			Button {
-				text: "Unlock"
-				padding: 10
+                // Try to unlock when enter is pressed.
+                onAccepted: root.context.tryUnlock()
 
-				// don't steal focus from the text box
-				focusPolicy: Qt.NoFocus
+                // Update the text in the box to match the text in the context.
+                // This makes sure multiple monitors have the same text.
+                Connections {
+                    target: root.context
 
-				enabled: !root.context.unlockInProgress && root.context.currentText !== "";
-				onClicked: root.context.tryUnlock();
-			}
-		}
+                    function onCurrentTextChanged() {
+                        passwordBox.text = root.context.currentText;
+                    }
+                }
+            }
 
-		Label {
-			visible: root.context.showErrorMsg
-			text: "Incorrect password"
-		}
-	}
+            Button {
+                text: "Unlock"
+                padding: 10
+
+                // don't steal focus from the text box
+                focusPolicy: Qt.NoFocus
+
+                enabled: !root.context.unlockInProgress && root.context.currentText !== ""
+                onClicked: root.context.tryUnlock()
+            }
+        }
+
+        Label {
+            visible: root.context.showErrorMsg
+            text: "Incorrect password"
+            color: Theme.rose
+        }
+    }
 }
