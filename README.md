@@ -31,4 +31,11 @@ This is Rosé-Shell the a Quickshell desktop for Niri made for the Rosé-Pine co
 		- Chords Menus
 			- Applications
 			- Power Menu
-
+	- Lockscreen
+		- Basic Monocolor Lockscreen
+		- Dev Bypass to Lockscreen (For development only, will be removed)
+			- ***The Lockscreen is NOT YET SECURE***
+		- Authentication
+			- Password
+			- Fingerprint
+				- Up to 3 attempts of pam_fprintd.so
