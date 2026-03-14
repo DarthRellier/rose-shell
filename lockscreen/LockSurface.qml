@@ -6,6 +6,7 @@ import Qt.labs.folderlistmodel
 import QtQuick.Controls.Fusion
 import Quickshell.Wayland
 import qs
+import qs.services
 
 WlSessionLockSurface {
     id: root
@@ -26,8 +27,8 @@ WlSessionLockSurface {
         }
 
         function getRandomPaper() {
-            var randomIndex = Math.floor(Math.random() * folderListModel.count)
-            return folderListModel.get(randomIndex, "fileUrl")
+            var randomIndex = Math.floor(Math.random() * folderListModel.count);
+            return folderListModel.get(randomIndex, "fileUrl");
         }
     }
 
@@ -42,54 +43,233 @@ WlSessionLockSurface {
 
         anchors {
             horizontalCenter: parent.horizontalCenter
-            top: parent.verticalCenter
+            verticalCenter: parent.verticalCenter
         }
 
-        RowLayout {
-            TextField {
-                id: passwordBox
+        // Time + Date
+        Text {
+            text: Qt.formatDate(new Date(), "dddd, MMMM d, yyyy")
 
-                implicitWidth: 400
-                padding: 10
+            font.pointSize: 11
+            font.family: Theme.varela
 
-                focus: true
-                enabled: !root.context.unlockInProgress
-                echoMode: TextInput.Password
-                inputMethodHints: Qt.ImhSensitiveData
+            color: Theme.rose
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
 
-                // Update the text in the context when the text in the box changes.
-                onTextChanged: root.context.currentText = this.text
+            Layout.fillWidth: true
+        }
 
-                // Try to unlock when enter is pressed.
-                onAccepted: root.context.tryUnlock()
+        Text {
+            id: clock
 
-                // Update the text in the box to match the text in the context.
-                // This makes sure multiple monitors have the same text.
+            text: Qt.formatDateTime(Time.clock.date, "h:mm AP")
+
+            font.pointSize: 48
+            font.family: Theme.varela
+
+            color: Theme.rose
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            Layout.fillWidth: true
+        }
+
+        // Lock Indicator
+        Rectangle {
+            Layout.preferredHeight: 150
+            Layout.preferredWidth: 150
+
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 15
+            Layout.bottomMargin: 15
+
+            radius: width / 2
+            color: Theme.surface
+
+            Text {
+                id: lockIcon
+                text: "󰌾"
+
+                font.pointSize: 55
+                font.family: Theme.symbols
+
+                color: root.context.pamFprintAllowed ? Theme.text : Theme.gold
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                anchors.centerIn: parent
+
+                SequentialAnimation {
+                    id: failSequence
+
+                    running: false
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: 10
+                        duration: 75
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: -10
+                        duration: 75
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: 10
+                        duration: 75
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: -10
+                        duration: 75
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: 10
+                        duration: 75
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: -10
+                        duration: 75
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "anchors.horizontalCenterOffset"
+                        to: 0
+                        duration: 75
+                    }
+
+                    onStarted: () => {
+                        lockIcon.color = Theme.love;
+                    }
+
+                    onFinished: () => {
+                        lockIcon.color = root.context.pamFprintAllowed ? Theme.text : Theme.gold;
+                    }
+                }
+
+                NumberAnimation {
+                    id: rotationAnimation
+                    
+                    target: lockIcon
+                    property: "rotation"
+                    to: 360
+                    duration: 600
+
+                    onStarted: () => {
+                        lockIcon.rotation = 0;
+                    }
+                }
+
                 Connections {
                     target: root.context
 
-                    function onCurrentTextChanged() {
-                        passwordBox.text = root.context.currentText;
+                    function onFailed() {
+                        failSequence.start();
+                    }
+
+                    function onFingerprintFailed() {
+                        failSequence.start();
+                    }
+
+                    function onUnlockInProgressChanged() {
+                        if (root.context.unlockInProgress) {
+                            rotationAnimation.start()
+                        }
                     }
                 }
-            }
 
-            Button {
-                text: "Unlock"
-                padding: 10
+                MouseArea {
+                    anchors.fill: parent
+                    
+                    focusPolicy: Qt.NoFocus
 
-                // don't steal focus from the text box
-                focusPolicy: Qt.NoFocus
-
-                enabled: !root.context.unlockInProgress && root.context.currentText !== ""
-                onClicked: root.context.tryUnlock()
+                    enabled: !root.context.unlockInProgress && root.context.currentText !== ""
+                    onClicked: root.context.tryUnlock()
+                }
             }
         }
 
-        Label {
-            visible: root.context.showErrorMsg
-            text: "Incorrect password"
+        // Instructions
+        Text {
+            text: "Enter password or\nfingerprint to unlock"
+
+            font.pointSize: 13
+            font.family: Theme.varela
+
             color: Theme.rose
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            Layout.alignment: Qt.AlignHCenter
+        }
+
+        // Seperator
+        Rectangle {
+            Layout.preferredHeight: 25
+            Layout.preferredWidth: 1
+            color: "transparent"
+        }
+
+        TextField {
+            id: passwordBox
+
+            background: Rectangle {
+                color: "transparent"
+            }
+
+            implicitWidth: contentWidth + 72
+            padding: 10
+
+            Behavior on implicitWidth {
+                NumberAnimation {
+                    duration: 100
+                }
+            }
+
+            focus: true
+            enabled: !root.context.unlockInProgress
+            echoMode: TextInput.Password
+            inputMethodHints: Qt.ImhSensitiveData
+            color: enabled ? Theme.rose : Theme.subtle
+            font.pointSize: 36
+            // horizontalAlignment: contentWidth + 36 < clock.width ? TextInput.AlignHCenter : TextInput.AlignRight
+            horizontalAlignment: TextInput.AlignRight
+
+            cursorDelegate: Rectangle {
+                color: "transparent"
+            }
+
+            // Update the text in the context when the text in the box changes.
+            onTextChanged: root.context.currentText = this.text
+
+            // Try to unlock when enter is pressed.
+            onAccepted: root.context.tryUnlock()
+
+            // Update the text in the box to match the text in the context.
+            // This makes sure multiple monitors have the same text.
+            Connections {
+                target: root.context
+
+                function onCurrentTextChanged() {
+                    passwordBox.text = root.context.currentText;
+                }
+            }
         }
     }
 }

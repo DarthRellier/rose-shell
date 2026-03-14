@@ -9,10 +9,12 @@ Scope {
 
     signal unlocked
     signal failed
+    signal fingerprintFailed
 
     property string currentText: ""
     property bool unlockInProgress: false
     property bool showErrorMsg: false
+    property bool pamFprintAllowed: true
 
     onCurrentTextChanged: root.showErrorMsg = false
 
@@ -75,13 +77,14 @@ Scope {
             if (result == PamResult.Success) {
                 root.unlocked()
             } else {
-                if (pamFprint.fails < 3) {
+                if (pamFprint.fails < 2) {
                     pamFprint.start()
+                    console.info("another try")
                 } else {
-                    console.info("no more fprint")
+                    root.pamFprintAllowed = false
                 }
                 pamFprint.fails += 1
-                console.info("fprint fail")
+                root.fingerprintFailed()
             }
         }
 
