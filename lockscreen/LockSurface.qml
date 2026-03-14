@@ -38,9 +38,6 @@ WlSessionLockSurface {
     }
 
     ColumnLayout {
-        // Uncommenting this will make the password entry invisible except on the active monitor.
-        // visible: Window.active
-
         anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
