@@ -9,6 +9,7 @@ Singleton {
     readonly property var appChords: [
         {"chord": Qt.Key_W, "chordName": "w", "command": "firefox", "description": "Open Firefox"},
         {"chord": Qt.Key_T, "chordName": "t", "command": "thunderbird", "description": "Open Thunderbird"},
+        {"chord": Qt.Key_K, "chordName": "k", "command": "kitty", "description": "Open Kitty"},
         {"chord": Qt.Key_L, "chordName": "l", "command": "libreoffice", "description": "Open LibreOffice"},
         {"chord": Qt.Key_E, "chordName": "e", "command": "thunar", "description": "Open Thunar"},
         {"chord": Qt.Key_O, "chordName": "o", "command": "obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland", "description": "Open Obsidian"},
