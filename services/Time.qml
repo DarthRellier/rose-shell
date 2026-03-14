@@ -8,5 +8,4 @@ Singleton {
     property SystemClock clock: SystemClock {
         precision: SystemClock.Minutes
     }
-
 }
