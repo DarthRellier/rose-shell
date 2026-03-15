@@ -13,12 +13,9 @@ Scope {
 
     property string currentText: ""
     property bool unlockInProgress: false
-    property bool showErrorMsg: false
     property bool pamFprintAllowed: pamFprint.fails < 2
     property bool showPamFprintAllowed: pamFprint.fails < 3 && pamFprintOriginated
     property bool pamFprintOriginated
-
-    onCurrentTextChanged: root.showErrorMsg = false
 
     function tryUnlock() {
         if (currentText == "") {
@@ -53,7 +50,6 @@ Scope {
             if (result == PamResult.Success) {
                 root.unlocked()
             } else {
-                root.showErrorMsg = true;
                 root.failed();
             }
         }
