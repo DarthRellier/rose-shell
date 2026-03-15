@@ -14,7 +14,8 @@ Scope {
     property string currentText: ""
     property bool unlockInProgress: false
     property bool showErrorMsg: false
-    property bool pamFprintAllowed: true
+    property bool pamFprintAllowed: pamFprint.fails < 2
+    property bool showPamFprintAllowed: pamFprint.fails < 3
 
     onCurrentTextChanged: root.showErrorMsg = false
 
@@ -77,7 +78,7 @@ Scope {
             if (result == PamResult.Success) {
                 root.unlocked()
             } else {
-                if (pamFprint.fails < 2) {
+                if (root.pamFprintAllowed) {
                     pamFprint.start()
                     console.info("another try")
                 } else {

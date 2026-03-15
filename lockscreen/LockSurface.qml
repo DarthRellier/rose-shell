@@ -86,7 +86,7 @@ WlSessionLockSurface {
                 font.pointSize: 55
                 font.family: Theme.symbols
 
-                color: root.context.pamFprintAllowed ? Theme.text : Theme.gold
+                color: root.context.showPamFprintAllowed ? Theme.text : Theme.gold
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
@@ -151,7 +151,7 @@ WlSessionLockSurface {
                     }
 
                     onFinished: () => {
-                        lockIcon.color = root.context.pamFprintAllowed ? Theme.text : Theme.gold;
+                        lockIcon.color = root.context.showPamFprintAllowed ? Theme.text : Theme.gold;
                     }
                 }
 
