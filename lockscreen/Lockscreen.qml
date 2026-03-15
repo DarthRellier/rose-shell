@@ -12,7 +12,6 @@ Scope {
 
     LockContext {
         id: lockContext
-
     }
 
     WlSessionLock {
@@ -24,7 +23,7 @@ Scope {
             context: lockContext
 
             onUnlockAnimFinished: () => {
-                lock.locked = false
+                lock.locked = false;
             }
         }
     }
@@ -34,9 +33,9 @@ Scope {
 
         function lock() {
             lock.locked = true;
-            lockContext.pamFprintOriginated = false
-            delayPam.restart()
-            // lockContext.startPamFprint()
+            lockContext.pamFprintOriginated = false;
+            delayPam.restart();
+        // lockContext.startPamFprint()
         }
     }
 
@@ -45,10 +44,10 @@ Scope {
 
         interval: 750
         running: false
-        
+
         onTriggered: () => {
-            lockContext.startPamFprint()
-            lockContext.pamFprintOriginated = true
+            lockContext.startPamFprint();
+            lockContext.pamFprintOriginated = true;
         }
     }
 }

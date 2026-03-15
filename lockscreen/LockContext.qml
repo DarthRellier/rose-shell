@@ -23,12 +23,12 @@ Scope {
         }
 
         root.unlockInProgress = true;
-        pam.start()
+        pam.start();
     }
 
     function startPamFprint() {
-        console.info("starting pam fprint")
-        pamFprint.started()
+        console.info("starting pam fprint");
+        pamFprint.started();
     }
 
     PamContext {
@@ -39,16 +39,16 @@ Scope {
 
         onPamMessage: {
             if (this.responseRequired) {
-                this.respond(root.currentText)
+                this.respond(root.currentText);
             }
         }
 
         onCompleted: result => {
             root.unlockInProgress = false;
-            root.currentText = ""
+            root.currentText = "";
 
             if (result == PamResult.Success) {
-                root.unlocked()
+                root.unlocked();
             } else {
                 root.failed();
             }
@@ -56,43 +56,43 @@ Scope {
 
         Component.onCompleted: {
             root.unlocked.connect(() => {
-                pam.abort()
-            })
+                pam.abort();
+            });
         }
     }
 
     PamContext {
         id: pamFprint
 
-        signal started()
+        signal started
 
-        property int fails: 0;
+        property int fails: 0
 
         configDirectory: "pam"
         config: "quickshell_fprint.conf"
 
         onCompleted: result => {
             if (result == PamResult.Success) {
-                root.unlocked()
+                root.unlocked();
             } else {
                 if (root.pamFprintAllowed) {
-                    pamFprint.start()
-                    console.info("another try")
+                    pamFprint.start();
+                    console.info("another try");
                 } else {
-                    root.pamFprintAllowed = false
+                    root.pamFprintAllowed = false;
                 }
-                pamFprint.fails += 1
-                root.fingerprintFailed()
+                pamFprint.fails += 1;
+                root.fingerprintFailed();
             }
         }
 
         Component.onCompleted: {
             pamFprint.started.connect(() => {
-                pamFprint.fails = 0
-                pamFprint.start()    
+                pamFprint.fails = 0;
+                pamFprint.start();
             });
             root.unlocked.connect(() => {
-                pamFprint.abort()
+                pamFprint.abort();
             });
         }
     }
