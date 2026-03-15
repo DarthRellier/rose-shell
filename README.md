@@ -34,6 +34,10 @@ This is Rosé-Shell a Quickshell desktop for Niri made for the Rosé-Pine color 
 			- Power Menu
 	- Lockscreen
 		- Fancy Lockscreen Image
+		- Animations
+				- Typing Animation
+				- Unlock Animation
+				- Authentication Failed Animation
 		- Authentication
 			- Password
 			- Fingerprint
