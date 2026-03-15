@@ -199,7 +199,7 @@ WlSessionLockSurface {
 
         // Instructions
         Text {
-            text: "Enter password or\nfingerprint to unlock"
+            text: root.context.showPamFprintAllowed ? "Enter password or\nfingerprint to unlock" : "Enter password\nto unlock"
 
             font.pointSize: 13
             font.family: Theme.varela
