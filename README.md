@@ -1,6 +1,7 @@
 # Rosé-Shell
 ## Overview
 ![Image of Shell Components in use](assets/readme_image0.png)
+![Image of Lockscreen](assets/readme_image1.png)
 This is Rosé-Shell the a Quickshell desktop for Niri made for the Rosé-Pine color scheme. 
 ## Features
 - **Features Include**
@@ -32,9 +33,7 @@ This is Rosé-Shell the a Quickshell desktop for Niri made for the Rosé-Pine co
 			- Applications
 			- Power Menu
 	- Lockscreen
-		- Basic Monocolor Lockscreen
-		- Dev Bypass to Lockscreen (For development only, will be removed)
-			- ***The Lockscreen is NOT YET SECURE***
+		- Fancy Lockscreen Image
 		- Authentication
 			- Password
 			- Fingerprint
