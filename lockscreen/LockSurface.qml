@@ -161,9 +161,9 @@ WlSessionLockSurface {
                     id: successSequence
 
                     onStarted: () => {
-                        lockIcon.color = Theme.rose
-                        lockIcon.rotation = 0
-                        console.info("started")
+                        lockIcon.color = Theme.rose;
+                        lockIcon.rotation = 0;
+                        console.info("started");
                     }
 
                     NumberAnimation {
@@ -184,8 +184,8 @@ WlSessionLockSurface {
                     }
 
                     onFinished: () => {
-                        console.info("finished")
-                        root.unlockAnimFinished()
+                        console.info("finished");
+                        root.unlockAnimFinished();
                     }
                 }
 
@@ -201,14 +201,14 @@ WlSessionLockSurface {
                     }
 
                     function onUnlocked() {
-                        console.info("unlock signal")
-                        successSequence.start()
+                        console.info("unlock signal");
+                        successSequence.start();
                     }
                 }
 
                 MouseArea {
                     anchors.fill: parent
-                    
+
                     focusPolicy: Qt.NoFocus
 
                     enabled: !root.context.unlockInProgress && root.context.currentText !== ""
@@ -268,8 +268,23 @@ WlSessionLockSurface {
                 color: "transparent"
             }
 
+            // Prevent Selection
+            onSelectionStartChanged: () => {
+                deselect();
+                cursorPosition = displayText.length + 1
+            }
+
+            onSelectionEndChanged: () => {
+                deselect();
+                cursorPosition = displayText.length + 1
+            }
+
             // Update the text in the context when the text in the box changes.
-            onTextChanged: root.context.currentText = this.text
+            onTextChanged: () => {
+                root.context.currentText = this.text;
+                deselect()
+                cursorPosition = displayText.length + 1
+            }
 
             // Try to unlock when enter is pressed.
             onAccepted: root.context.tryUnlock()
