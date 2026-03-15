@@ -163,7 +163,6 @@ WlSessionLockSurface {
                     onStarted: () => {
                         lockIcon.color = Theme.rose;
                         lockIcon.rotation = 0;
-                        console.info("started");
                     }
 
                     NumberAnimation {
@@ -184,7 +183,6 @@ WlSessionLockSurface {
                     }
 
                     onFinished: () => {
-                        console.info("finished");
                         root.unlockAnimFinished();
                     }
                 }
@@ -201,7 +199,6 @@ WlSessionLockSurface {
                     }
 
                     function onUnlocked() {
-                        console.info("unlock signal");
                         successSequence.start();
                     }
                 }
