@@ -225,7 +225,7 @@ WlSessionLockSurface {
                 color: "transparent"
             }
 
-            implicitWidth: contentWidth + 72
+            implicitWidth: contentWidth + 36
             padding: 10
 
             Behavior on implicitWidth {
@@ -241,7 +241,8 @@ WlSessionLockSurface {
             color: enabled ? Theme.rose : Theme.subtle
             font.pointSize: 36
             // horizontalAlignment: contentWidth + 36 < clock.width ? TextInput.AlignHCenter : TextInput.AlignRight
-            horizontalAlignment: TextInput.AlignRight
+            horizontalAlignment: TextInput.AlignLeft
+            Layout.alignment: Qt.AlignHCenter
 
             cursorDelegate: Rectangle {
                 color: "transparent"
