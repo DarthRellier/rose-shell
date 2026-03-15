@@ -32,11 +32,6 @@ WlSessionLockSurface {
         }
     }
 
-    Button {
-        text: "It's not working, let me out!"
-        onClicked: root.context.unlocked()
-    }
-
     ColumnLayout {
         anchors {
             horizontalCenter: parent.horizontalCenter
