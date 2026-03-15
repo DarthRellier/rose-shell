@@ -15,7 +15,8 @@ Scope {
     property bool unlockInProgress: false
     property bool showErrorMsg: false
     property bool pamFprintAllowed: pamFprint.fails < 2
-    property bool showPamFprintAllowed: pamFprint.fails < 3
+    property bool showPamFprintAllowed: pamFprint.fails < 3 && pamFprintOriginated
+    property bool pamFprintOriginated
 
     onCurrentTextChanged: root.showErrorMsg = false
 

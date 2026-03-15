@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
+import QtQuick
 
 // Based on Quickshell's lockscreen example
 
@@ -32,7 +33,21 @@ Scope {
 
         function lock() {
             lock.locked = true;
+            lockContext.pamFprintOriginated = false
+            delayPam.restart()
+            // lockContext.startPamFprint()
+        }
+    }
+
+    Timer {
+        id: delayPam
+
+        interval: 500
+        running: false
+        
+        onTriggered: () => {
             lockContext.startPamFprint()
+            lockContext.pamFprintOriginated = true
         }
     }
 }
