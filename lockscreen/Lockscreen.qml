@@ -13,9 +13,6 @@ Scope {
     LockContext {
         id: lockContext
 
-        onUnlocked: {
-            lock.locked = false;
-        }
     }
 
     WlSessionLock {
@@ -25,6 +22,10 @@ Scope {
 
         LockSurface {
             context: lockContext
+
+            onUnlockAnimFinished: () => {
+                lock.locked = false
+            }
         }
     }
 

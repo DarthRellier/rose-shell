@@ -12,6 +12,8 @@ WlSessionLockSurface {
     id: root
     required property LockContext context
 
+    signal unlockAnimFinished
+
     color: Theme.surface
 
     Image {
@@ -77,11 +79,11 @@ WlSessionLockSurface {
             Layout.bottomMargin: 15
 
             radius: width / 2
-            color: Theme.surface
+            color: Qt.alpha(Theme.surface, 0.65)
 
             Text {
                 id: lockIcon
-                text: "󰌾"
+                text: ""
 
                 font.pointSize: 55
                 font.family: Theme.symbols
@@ -155,16 +157,35 @@ WlSessionLockSurface {
                     }
                 }
 
-                NumberAnimation {
-                    id: rotationAnimation
-                    
-                    target: lockIcon
-                    property: "rotation"
-                    to: 360
-                    duration: 600
+                SequentialAnimation {
+                    id: successSequence
 
                     onStarted: () => {
-                        lockIcon.rotation = 0;
+                        lockIcon.color = Theme.rose
+                        lockIcon.rotation = 0
+                        console.info("started")
+                    }
+
+                    NumberAnimation {
+                        target: lockIcon
+                        property: "rotation"
+                        to: 360
+                        duration: 350
+                    }
+
+                    PropertyAction {
+                        target: lockIcon
+                        property: "text"
+                        value: ""
+                    }
+
+                    PauseAnimation {
+                        duration: 500
+                    }
+
+                    onFinished: () => {
+                        console.info("finished")
+                        root.unlockAnimFinished()
                     }
                 }
 
@@ -179,10 +200,9 @@ WlSessionLockSurface {
                         failSequence.start();
                     }
 
-                    function onUnlockInProgressChanged() {
-                        if (root.context.unlockInProgress) {
-                            rotationAnimation.start()
-                        }
+                    function onUnlocked() {
+                        console.info("unlock signal")
+                        successSequence.start()
                     }
                 }
 
