@@ -32,7 +32,6 @@ Singleton {
         source: "/home/nathaniel/.config/quickshell/assets/SymbolsNerdFontMono-Regular.ttf"
     }
 
-    readonly property string winky: varelaLoader.name
     readonly property string varela: varelaLoader.name
     readonly property string symbols: symbolsLoader.name
 }
