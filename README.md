@@ -40,5 +40,6 @@ This is Rosé-Shell a Quickshell desktop for Niri made for the Rosé-Pine color 
 			- Authentication Failed Animation
 		- Authentication
 			- Password
+				- Keyboard language indicator
 			- Fingerprint
 				- Up to 3 attempts of pam_fprintd.so
