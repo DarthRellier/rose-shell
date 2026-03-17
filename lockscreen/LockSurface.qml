@@ -296,5 +296,17 @@ WlSessionLockSurface {
                 }
             }
         }
+
+        Text {
+            text: Niri.shortenedKeyboardLayout.toUpperCase()
+
+            font.pointSize: 11
+            font.family: Theme.varela
+
+            color: passwordBox.text.length > 0 ? Theme.rose : "transparent"
+            horizontalAlignment: Text.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: contentWidth + 36
+        }
     }
 }
