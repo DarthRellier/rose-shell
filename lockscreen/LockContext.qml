@@ -77,7 +77,7 @@ Scope {
             } else {
                 if (root.pamFprintAllowed) {
                     pamFprint.start();
-                    console.info("another try");
+                    console.info(fails);
                 } else {
                     root.pamFprintAllowed = false;
                 }
