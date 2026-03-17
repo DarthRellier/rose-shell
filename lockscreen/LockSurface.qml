@@ -260,6 +260,7 @@ WlSessionLockSurface {
             // horizontalAlignment: contentWidth + 36 < clock.width ? TextInput.AlignHCenter : TextInput.AlignRight
             horizontalAlignment: TextInput.AlignLeft
             Layout.alignment: Qt.AlignHCenter
+            Layout.rightMargin: contentWidth / -36
 
             cursorDelegate: Rectangle {
                 color: "transparent"
@@ -306,7 +307,8 @@ WlSessionLockSurface {
             color: passwordBox.text.length > 0 ? Theme.rose : "transparent"
             horizontalAlignment: Text.AlignHCenter
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: contentWidth + 36
+            Layout.fillWidth: true
+            Layout.topMargin: -12
         }
     }
 }
