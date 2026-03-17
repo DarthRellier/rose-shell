@@ -2,7 +2,7 @@
 ## Overview
 ![Image of Shell Components in use](assets/readme_image0.png)
 ![Image of Lockscreen](assets/readme_image1.png)
-This is Rosé-Shell a Quickshell desktop for Niri made for the Rosé-Pine color scheme. 
+This is Rosé-Shell a Quickshell desktop for [Niri](https://github.com/niri-wm/niri) made for the Rosé-Pine color scheme. 
 ## Features
 - **Features Include**
 	- Sidebar
