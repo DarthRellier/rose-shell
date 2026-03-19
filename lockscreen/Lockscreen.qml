@@ -34,8 +34,13 @@ Scope {
         function lock() {
             lock.locked = true;
             lockContext.pamFprintOriginated = false;
+            lockContext.currentText = ""
             delayPam.restart();
         // lockContext.startPamFprint()
+        }
+
+        function unlock() {
+            lock.locked = false
         }
     }
 

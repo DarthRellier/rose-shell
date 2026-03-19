@@ -34,6 +34,12 @@ WlSessionLockSurface {
         }
     }
 
+    // Button {
+    //     text: "help it doesn't work"
+
+    //     onClicked: root.context.unlocked()
+    // }
+
     ColumnLayout {
         anchors {
             horizontalCenter: parent.horizontalCenter
@@ -235,32 +241,15 @@ WlSessionLockSurface {
             color: "transparent"
         }
 
-        TextField {
+        TextInput {
             id: passwordBox
-
-            background: Rectangle {
-                color: "transparent"
-            }
-
-            implicitWidth: contentWidth + 36
-            padding: 10
-
-            Behavior on implicitWidth {
-                NumberAnimation {
-                    duration: 100
-                }
-            }
 
             focus: true
             enabled: !root.context.unlockInProgress
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhSensitiveData
-            color: enabled ? Theme.rose : Theme.subtle
-            font.pointSize: 36
-            // horizontalAlignment: contentWidth + 36 < clock.width ? TextInput.AlignHCenter : TextInput.AlignRight
-            horizontalAlignment: TextInput.AlignLeft
-            Layout.alignment: Qt.AlignHCenter
-            Layout.rightMargin: contentWidth / -36
+            color: "transparent"
+            Layout.preferredHeight: 0
 
             cursorDelegate: Rectangle {
                 color: "transparent"
@@ -298,6 +287,73 @@ WlSessionLockSurface {
             }
         }
 
+        RowLayout {
+            Item {
+                Layout.fillWidth: true
+            }
+
+            ListView {
+                spacing: 1
+                orientation: Qt.Horizontal
+                interactive: false
+
+                Layout.preferredWidth: contentWidth
+                Layout.preferredHeight: 20
+
+                model: root.context.currentTextModel
+
+                delegate: Text {
+                    id: dotText
+                    text: ""
+
+                    font.family: Theme.symbols
+                    font.pointSize: 16
+
+                    color: passwordBox.enabled ? Theme.rose : Theme.subtle
+
+                    ListView.onRemove: removeAnim.start()
+                    ListView.onAdd: addAnim.start()
+
+                    anchors.leftMargin: 100
+
+                    SequentialAnimation {
+                        id: removeAnim
+                        PropertyAction {
+                            target: dotText
+                            property: "ListView.delayRemove"
+                            value: true
+                        }
+                        NumberAnimation {
+                            target: dotText
+                            property: "scale"
+                            to: 0
+                            duration: 100
+                        }
+                        PropertyAction {
+                            target: dotText
+                            property: "ListView.delayRemove"
+                            value: false
+                        }
+                    }
+
+                    SequentialAnimation {
+                        id: addAnim
+                        NumberAnimation {
+                            target: dotText
+                            property: "scale"
+                            from: 0
+                            to: 1
+                            duration: 100
+                        }
+                    }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+            }
+        }
+
         Text {
             text: Niri.shortenedKeyboardLayout.toUpperCase()
 
@@ -308,7 +364,7 @@ WlSessionLockSurface {
             horizontalAlignment: Text.AlignHCenter
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
-            Layout.topMargin: -12
+            Layout.topMargin: 6
         }
     }
 }
