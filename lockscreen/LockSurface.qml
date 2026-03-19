@@ -293,12 +293,12 @@ WlSessionLockSurface {
             }
 
             ListView {
-                spacing: 1
+                spacing: 5
                 orientation: Qt.Horizontal
                 interactive: false
 
                 Layout.preferredWidth: contentWidth
-                Layout.preferredHeight: 20
+                Layout.preferredHeight: 24
 
                 model: root.context.currentTextModel
 
@@ -314,7 +314,9 @@ WlSessionLockSurface {
                     ListView.onRemove: removeAnim.start()
                     ListView.onAdd: addAnim.start()
 
-                    anchors.leftMargin: 100
+                    width: 10
+                    horizontalAlignment: Text.AlignHCenter
+                    transformOrigin: Item.Center
 
                     SequentialAnimation {
                         id: removeAnim
@@ -323,11 +325,20 @@ WlSessionLockSurface {
                             property: "ListView.delayRemove"
                             value: true
                         }
-                        NumberAnimation {
-                            target: dotText
-                            property: "scale"
-                            to: 0
-                            duration: 100
+                        ParallelAnimation {
+                            NumberAnimation {
+                                target: dotText
+                                property: "scale"
+                                to: 0
+                                duration: 150
+                            }
+
+                            NumberAnimation {
+                                target: dotText
+                                property: "opacity"
+                                to: 0
+                                duration: 100
+                            }
                         }
                         PropertyAction {
                             target: dotText
@@ -336,7 +347,7 @@ WlSessionLockSurface {
                         }
                     }
 
-                    SequentialAnimation {
+                    ParallelAnimation {
                         id: addAnim
                         NumberAnimation {
                             target: dotText
@@ -344,6 +355,13 @@ WlSessionLockSurface {
                             from: 0
                             to: 1
                             duration: 100
+                        }
+                        NumberAnimation {
+                            target: dotText
+                            property: "opacity"
+                            from: 0
+                            to: 1
+                            duration: 150
                         }
                     }
                 }
