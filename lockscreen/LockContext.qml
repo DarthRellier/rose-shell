@@ -12,7 +12,9 @@ Scope {
     signal fingerprintFailed
 
     property string currentText: ""
-    property ListModel currentTextModel: ListModel {id: passwordTextListModel}
+    property ListModel currentTextModel: ListModel {
+        id: passwordTextListModel
+    }
     property bool unlockInProgress: false
     property bool pamFprintAllowed: pamFprint.fails < 2
     property bool showPamFprintAllowed: pamFprint.fails < 3 && pamFprintOriginated
@@ -20,11 +22,11 @@ Scope {
 
     onCurrentTextChanged: {
         while (currentTextModel.count < currentText.length) {
-            currentTextModel.append({})
+            currentTextModel.append({});
         }
-            
+
         while (currentTextModel.count > currentText.length) {
-            currentTextModel.remove(currentTextModel.count - 1)
+            currentTextModel.remove(currentTextModel.count - 1);
         }
     }
 
@@ -88,9 +90,9 @@ Scope {
             } else {
                 if (root.pamFprintAllowed) {
                     pamFprint.start();
-                    console.info(fails);
+                    console.info("Pam Fprint Failed. Fails: " + (fails + 1) + ".");
                 } else {
-                    root.pamFprintAllowed = false;
+                    console.info("Pam Fprint Failed. Fails: " + (fails + 1) + ". No More Attempts.")
                 }
                 pamFprint.fails += 1;
                 root.fingerprintFailed();
