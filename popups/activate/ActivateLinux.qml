@@ -1,0 +1,58 @@
+import Quickshell
+import Quickshell.Wayland
+import QtQuick
+import QtQuick.Layouts
+import qs
+
+PanelWindow {
+    anchors {
+        right: true
+        bottom: true
+    }
+
+    margins.bottom: 10
+    margins.right: 15
+
+    implicitHeight: activateLinux.height
+    implicitWidth: activateLinux.width
+
+    color: "transparent"
+
+    Component.onCompleted: {
+        if (this.WlrLayershell != null) {
+            this.WlrLayershell.layer = WlrLayer.Bottom;
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+
+        onClicked: {
+            Quickshell.execDetached(["xdg-open", "https://xkcd.com"])
+        }
+    }
+
+    ColumnLayout {
+        id: activateLinux
+
+        spacing: -2
+
+        Text {
+            text: "Activate Linux"
+
+            font.pointSize: 18
+            color: Theme.subtle
+            opacity: 0.75
+        }
+
+        Text {
+            text: "For $100/GIMP Release"
+
+            Layout.fillWidth: true
+
+            font.pointSize: 8
+            color: Theme.subtle
+            horizontalAlignment: Text.AlignRight
+        }
+    }
+}
