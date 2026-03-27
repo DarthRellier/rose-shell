@@ -41,7 +41,7 @@ PanelWindow {
             text: "Activate Linux"
 
             font.pointSize: 18
-            color: Theme.subtle
+            color: Theme.text
             opacity: 0.75
         }
 
@@ -51,7 +51,7 @@ PanelWindow {
             Layout.fillWidth: true
 
             font.pointSize: 8
-            color: Theme.subtle
+            color: Theme.text
             horizontalAlignment: Text.AlignRight
         }
     }
