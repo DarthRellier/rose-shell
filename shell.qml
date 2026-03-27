@@ -8,6 +8,7 @@ import qs.sidebar
 import qs.popups.osd
 import qs.popups.notifications
 import qs.popups.chords
+import qs.popups.activate
 import qs.lockscreen
 
 Scope {
@@ -24,4 +25,6 @@ Scope {
     PowerChordList {}
 
     Lockscreen {}
+
+    ActivateLinux {}
 }

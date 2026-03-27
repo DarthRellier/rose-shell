@@ -46,7 +46,7 @@ PanelWindow {
         }
 
         Text {
-            text: "For $100/GIMP Release"
+            text: "or don't i guess"
 
             Layout.fillWidth: true
 
