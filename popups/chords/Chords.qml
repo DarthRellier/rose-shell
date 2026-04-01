@@ -8,7 +8,7 @@ Singleton {
 
     readonly property var appChords: [
         {"chord": Qt.Key_W, "chordName": "w", "command": "firefox", "description": "Open Firefox"},
-        {"chord": Qt.Key_T, "chordName": "t", "command": "thunderbird", "description": "Open Thunderbird"},
+        {"chord": Qt.Key_M, "chordName": "m", "command": "flatpak run com.getmailspring.Mailspring --password-store=gnome-libsecret", "description": "Open Mailspring"},
         {"chord": Qt.Key_K, "chordName": "k", "command": "kitty", "description": "Open Kitty"},
         {"chord": Qt.Key_L, "chordName": "l", "command": "libreoffice", "description": "Open LibreOffice"},
         {"chord": Qt.Key_E, "chordName": "e", "command": "thunar", "description": "Open Thunar"},
@@ -16,6 +16,7 @@ Singleton {
         {"chord": Qt.Key_G, "chordName": "g", "command": "gimp", "description": "Open GIMP"},
         {"chord": Qt.Key_B, "chordName": "b", "command": "kitty -e btop", "description": "Open BTOP++"},
         {"chord": Qt.Key_F, "chordName": "f", "command": "kitty --app-id=float-term -e fish-file-explorer", "description": "Fzf File Explorer"},
+        {"chord": Qt.Key_P, "chordName": "p", "command": "flatpak run --env=BITWARDEN_THEME=gtk com.bitwarden.desktop", "description": "Open Bitwarden"},
         {"chord": Qt.Key_S, "chordName": "s", "command": "kitty --app-id=float-term -e fish-window-switcher", "description": "Fzf Window Switcher"},
         {"chord": Qt.Key_D, "chordName": "d", "command": "kitty --app-id=float-term -e fish-debate-file-explorer", "description": "Fzf Debate Files"},
         {"chord": Qt.Key_Return, "chordName": "⏎", "command": "kitty --app-id=float-term -e sway-launcher-desktop.sh", "description": "Open Launcher"}
