@@ -14,6 +14,7 @@ Rectangle {
 
     required property Notification modelData
     property bool hasImage: modelData.image || modelData.appIcon
+    property list<NotificationAction> actualActions: modelData.actions.filter(text => text.strip() != "")
 
     implicitHeight: contentRow.height + 16
 
@@ -76,6 +77,10 @@ Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
 
+            Item {
+                Layout.fillHeight: true
+            }
+
             Text {
                 text: root.modelData.summary
                 font.family: Theme.varela
@@ -130,7 +135,7 @@ Rectangle {
 
                 Repeater {
                     id: actionButtons
-                    model: root.modelData.actions
+                    model: root.actualActions
 
                     ThemeButton {
                         required property NotificationAction modelData
@@ -146,6 +151,10 @@ Rectangle {
                         onClicked: modelData.invoke()
                     }
                 }
+            }
+
+            Item {
+                Layout.fillHeight: true
             }
         }
     }
