@@ -110,7 +110,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: !root.hasImage ? true : false
                 Layout.rightMargin: 16
-                Layout.bottomMargin: 2
+                Layout.bottomMargin: root.actualActions.length == 0 ? 0 : 2
 
                 maximumLineCount: 4
                 wrapMode: Text.Wrap
