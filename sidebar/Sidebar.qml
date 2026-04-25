@@ -22,16 +22,7 @@ PanelWindow {
 
     implicitWidth: 40
 
-    color: "transparent"
-
-    Rectangle {
-        anchors.fill: parent
-
-        topRightRadius: 10
-        bottomRightRadius: 10
-
-        color: Theme.surface
-    }
+    color: Theme.surface
 
     // Top Widgets
     WorkspaceIndicator {}
