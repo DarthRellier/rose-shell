@@ -47,7 +47,7 @@ Scope {
     Timer {
         id: delayPam
 
-        interval: 750
+        interval: 250
         running: false
 
         onTriggered: () => {
