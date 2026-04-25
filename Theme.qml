@@ -24,7 +24,7 @@ Singleton {
     // Define fonts
     FontLoader {
         id: varelaLoader
-        source: "/home/nathaniel/.config/quickshell/assets/VarelaRound-Regular.ttf"
+        source: "/home/nathaniel/.config/quickshell/assets/Commissioner-Medium.ttf"
     }
 
     FontLoader {
