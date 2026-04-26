@@ -51,6 +51,6 @@ PanelWindow {
 
         font.pointSize: 18
         color: Theme.text
-        opacity: 0.75
+        opacity: 0.5
     }
 }
