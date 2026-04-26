@@ -50,7 +50,7 @@ PanelWindow {
         text: Park.parkName
 
         font.pointSize: 18
-        color: Theme.text
-        opacity: 0.5
+        font.family: Theme.varela
+        color: Park.isLight ? Theme.highlightMed : Theme.muted
     }
 }

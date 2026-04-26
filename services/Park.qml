@@ -6,7 +6,8 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    property string parkName: "deez"
+    property string parkName: "Missing Name!"
+    property bool isLight
 
     Process {
         id: getParkProcess
@@ -14,8 +15,10 @@ Singleton {
         command: ["awww", "query"]
         stdout: StdioCollector {
             onStreamFinished: {
-                const matches = this.text.match(/.*\/(.*)\.jpg/)
-                root.parkName = matches[1]
+                // This means that wallpaper filenames must conform to this format: Display Name-dark/light-version.jpg
+                const matches = this.text.match(/.*\/([^\-]*)\-(\w+)\-*.*\.[jpg|png|jpeg]/)
+                root.parkName = matches[1].trim()
+                root.isLight = matches[2] == "light" ? true : false
             }
         }
     }
