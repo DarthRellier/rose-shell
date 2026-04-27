@@ -8,7 +8,7 @@ import qs.sidebar
 import qs.popups.osd
 import qs.popups.notifications
 import qs.popups.chords
-import qs.popups.parks
+import qs.popups.label
 import qs.lockscreen
 
 Scope {
@@ -26,5 +26,5 @@ Scope {
 
     Lockscreen {}
 
-    ParkOverlay {}
+    WallpaperLabelOverlay {}
 }

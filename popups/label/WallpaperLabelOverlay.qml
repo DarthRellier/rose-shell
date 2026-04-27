@@ -11,8 +11,8 @@ PanelWindow {
         bottom: true
     }
 
-    margins.bottom: 10
-    margins.right: 15
+    margins.bottom: 3
+    margins.right: 10
 
     implicitHeight: parkNameText.height
     implicitWidth: parkNameText.width
@@ -47,10 +47,10 @@ PanelWindow {
 
     Text {
         id: parkNameText
-        text: Park.parkName
+        text: Wallpaper.paperLabel
 
         font.pointSize: 18
         font.family: Theme.varela
-        color: Park.isLight ? Theme.highlightMed : Theme.muted
+        color: Wallpaper.labelIsLight ? Theme.highlightMed : Theme.muted
     }
 }

@@ -18,7 +18,7 @@ WlSessionLockSurface {
 
     Image {
         anchors.fill: parent
-        source: getRandomPaper()
+        source: Qt.resolvedUrl("../assets/lockscreen-papers/" + Wallpaper.paperFileName)
         fillMode: Qt.PreserveAspectCrop
 
         FolderListModel {
