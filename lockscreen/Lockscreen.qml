@@ -47,7 +47,8 @@ Scope {
     Timer {
         id: delayPam
 
-        interval: 250
+        // Delay Start of Touch ID to prevent it from starting before suspend
+        interval: 750
         running: false
 
         onTriggered: () => {
