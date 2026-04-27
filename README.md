@@ -32,8 +32,10 @@ This is Rosé-Shell a Quickshell desktop for [Niri](https://github.com/niri-wm/n
 		- Chords Menus
 			- Applications
 			- Power Menu
+	- Overlay Label
+		- Label on Lockscreen with Wallpaper Title
 	- Lockscreen
-		- Fancy Lockscreen Image
+		- Background Mirrors Wallpaper
 		- Animations
 			- Typing Animation
 			- Unlock Animation
