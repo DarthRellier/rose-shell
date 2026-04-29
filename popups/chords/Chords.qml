@@ -19,7 +19,7 @@ Singleton {
         {"chord": Qt.Key_P, "chordName": "p", "command": "flatpak run --env=BITWARDEN_THEME=gtk com.bitwarden.desktop", "description": "Open Bitwarden"},
         {"chord": Qt.Key_S, "chordName": "s", "command": "kitty --app-id=float-term -e fish-window-switcher", "description": "Fzf Window Switcher"},
         {"chord": Qt.Key_D, "chordName": "d", "command": "kitty --app-id=float-term -e fish-debate-file-explorer", "description": "Fzf Debate Files"},
-        {"chord": Qt.Key_Return, "chordName": "⏎", "command": "kitty --app-id=float-term -e sway-launcher-desktop.sh", "description": "Open Launcher"}
+        {"chord": Qt.Key_Return, "chordName": "⏎", "command": "~/.config/rofi/launchers/type-2/launcher.sh", "description": "Open Launcher"}
     ]
 
     readonly property var powerChords: [
