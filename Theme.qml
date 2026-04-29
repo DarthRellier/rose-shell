@@ -24,17 +24,17 @@ Singleton {
     // Define fonts
     FontLoader {
         id: fontLoader
-        source: "assets/Commissioner-Medium.ttf"
+        source: "assets/fonts/Commissioner-Medium.ttf"
     }
 
     FontLoader {
         id: boldLoader
-        source: "assets/Commissioner-SemiBold.ttf"
+        source: "assets/fonts/Commissioner-SemiBold.ttf"
     }
 
     FontLoader {
         id: symbolsLoader
-        source: "assets/SymbolsNerdFontMono-Regular.ttf"
+        source: "assets/fonts/SymbolsNerdFontMono-Regular.ttf"
     }
 
     readonly property string font: fontLoader.name
