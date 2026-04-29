@@ -39,7 +39,7 @@ Rectangle {
         }
 
         Image {
-            visible: root.hasImage
+            visible: getImageSource(root.modelData)
 
             source: getImageSource(root.modelData)
 
@@ -68,6 +68,16 @@ Rectangle {
                     return notif.image;
                 } else if (notif.appIcon) {
                     return notif.appIcon;
+                } else {
+                    if (notif.urgency == NotificationUrgency.Low) {
+                        return "../../assets/icons/niri-icons/niri-foam.svg"
+                    } else if (notif.urgency == NotificationUrgency.Normal) {
+                        return "../../assets/icons/niri-icons/niri-rose.svg"
+                    } else if (notif.urgency == NotificationUrgency.Critical) {
+                        return "../../assets/icons/niri-icons/niri-love.svg"
+                    } else {
+                        return false
+                    }
                 }
             }
         }
