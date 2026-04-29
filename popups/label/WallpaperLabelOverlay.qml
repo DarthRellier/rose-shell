@@ -50,7 +50,7 @@ PanelWindow {
         text: Wallpaper.paperLabel
 
         font.pointSize: 18
-        font.family: Theme.varela
+        font.family: Theme.font
         color: Wallpaper.labelIsLight ? Theme.highlightMed : Theme.muted
     }
 }

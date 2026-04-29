@@ -83,9 +83,8 @@ Rectangle {
 
             Text {
                 text: root.modelData.summary
-                font.family: Theme.varela
+                font.family: Theme.boldFont
                 color: root.modelData.urgency == NotificationUrgency.Critical ? Theme.love : root.modelData.urgency == NotificationUrgency.Low ? Theme.foam : Theme.rose
-                font.bold: true
 
                 Layout.fillWidth: true
                 Layout.rightMargin: 32
@@ -104,7 +103,7 @@ Rectangle {
 
             Text {
                 text: root.modelData.body
-                font.family: Theme.varela
+                font.family: Theme.font
                 color: Theme.text
 
                 Layout.fillWidth: true

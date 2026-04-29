@@ -23,15 +23,21 @@ Singleton {
 
     // Define fonts
     FontLoader {
-        id: varelaLoader
-        source: "/home/nathaniel/.config/quickshell/assets/Commissioner-Medium.ttf"
+        id: fontLoader
+        source: "assets/Commissioner-Medium.ttf"
+    }
+
+    FontLoader {
+        id: boldLoader
+        source: "assets/Commissioner-SemiBold.ttf"
     }
 
     FontLoader {
         id: symbolsLoader
-        source: "/home/nathaniel/.config/quickshell/assets/SymbolsNerdFontMono-Regular.ttf"
+        source: "assets/SymbolsNerdFontMono-Regular.ttf"
     }
 
-    readonly property string varela: varelaLoader.name
+    readonly property string font: fontLoader.name
+    readonly property string boldFont: boldLoader.name
     readonly property string symbols: symbolsLoader.name
 }

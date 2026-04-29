@@ -96,7 +96,7 @@ Rectangle {
         Text {
             id: batterytext
             text: Math.min(Math.round((SystemInfo.battery.percentage * 100)), 99).toString().padStart(2, "0")
-            font.family: Theme.varela
+            font.family: Theme.font
             font.pointSize: 11
             color: Theme.rose
             horizontalAlignment: Text.AlignHCenter

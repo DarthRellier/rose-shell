@@ -51,7 +51,7 @@ WlSessionLockSurface {
             text: Qt.formatDate(new Date(), "dddd, MMMM d, yyyy")
 
             font.pointSize: 11
-            font.family: Theme.varela
+            font.family: Theme.font
 
             color: Theme.rose
             horizontalAlignment: Text.AlignHCenter
@@ -66,7 +66,7 @@ WlSessionLockSurface {
             text: Qt.formatDateTime(Time.clock.date, "h:mm AP")
 
             font.pointSize: 48
-            font.family: Theme.varela
+            font.family: Theme.font
 
             color: Theme.rose
             horizontalAlignment: Text.AlignHCenter
@@ -225,7 +225,7 @@ WlSessionLockSurface {
             text: root.context.showPamFprintAllowed ? "Enter password or\nfingerprint to unlock" : "Enter password\nto unlock"
 
             font.pointSize: 13
-            font.family: Theme.varela
+            font.family: Theme.font
 
             color: Theme.rose
             horizontalAlignment: Text.AlignHCenter
@@ -376,7 +376,7 @@ WlSessionLockSurface {
             text: Niri.shortenedKeyboardLayout.toUpperCase()
 
             font.pointSize: 11
-            font.family: Theme.varela
+            font.family: Theme.font
 
             color: passwordBox.text.length > 0 ? Theme.rose : "transparent"
             horizontalAlignment: Text.AlignHCenter

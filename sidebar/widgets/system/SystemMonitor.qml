@@ -28,7 +28,7 @@ Rectangle {
 
         Text {
             text: `${Math.round(SystemInfo.memUsedPct * 100).toString().padStart(2, "0")}`
-            font.family: Theme.varela
+            font.family: Theme.font
             font.pointSize: 10
             color: Theme.rose
             anchors.horizontalCenter: parent.horizontalCenter
@@ -52,7 +52,7 @@ Rectangle {
 
         Text {
             text: `${Math.round(SystemInfo.cpuUsage * 100).toString().padStart(2, "0")}`
-            font.family: Theme.varela
+            font.family: Theme.font
             font.pointSize: 10
             color: Theme.rose
             anchors.horizontalCenter: parent.horizontalCenter
@@ -90,7 +90,7 @@ Rectangle {
 
         Text {
             text: `${Math.round(SystemInfo.tempC)}`
-            font.family: Theme.varela
+            font.family: Theme.font
             font.pointSize: 10
             color: Theme.rose
             anchors.horizontalCenter: parent.horizontalCenter

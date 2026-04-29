@@ -24,7 +24,7 @@ Button {
         text: button.text
         color: button.pressed ? button.pressedFg : button.normalFg
 
-        font.family: Theme.varela
+        font.family: Theme.font
         font.pointSize: button.pointSize
 
         elide: Text.ElideRight

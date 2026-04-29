@@ -91,9 +91,8 @@ Item {
                             Text {
                                 text: textRow.modelData.chordName.toUpperCase()
 
-                                font.family: Theme.varela
+                                font.family: Theme.boldFont
                                 font.pointSize: 12
-                                font.bold: true
 
                                 color: textRow.modelData.modifiers ? Theme.love : Theme.rose
 
@@ -103,7 +102,7 @@ Item {
                             Text {
                                 text: textRow.modelData.description
 
-                                font.family: Theme.varela
+                                font.family: Theme.font
                                 font.pointSize: 12
 
                                 color: Theme.text
