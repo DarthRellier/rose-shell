@@ -56,7 +56,6 @@ Rectangle {
             Layout.alignment: Qt.AlignRight
 
             fillMode: Image.PreserveAspectFit
-            mipmap: true
 
             MouseArea {
                 anchors.fill: parent
