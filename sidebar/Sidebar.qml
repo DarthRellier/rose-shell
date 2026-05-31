@@ -1,8 +1,9 @@
 pragma ComponentBehavior: Bound
 
 import Quickshell
-import Quickshell.Widgets
+import Quickshell.Wayland
 import QtQuick
+import QtQuick.Shapes
 import qs.sidebar.widgets.clock
 import qs.sidebar.widgets.workspaces
 import qs.sidebar.widgets.battery
@@ -20,16 +21,36 @@ PanelWindow {
         bottom: true
     }
 
-    implicitWidth: 40
+    implicitWidth: 60
+    exclusiveZone: 40
 
-    color: Theme.surface
+    color: "transparent"
+    Shape {
+        id: backgroundShape
+        ShapePath {
+            strokeWidth: 0 
+            fillColor: Theme.surface
+            startX: 0
+            startY: 0
+            PathLine  { x: 0; relativeY: root.height}
+            PathLine { relativeX: 60; relativeY: 0}
+            PathArc { relativeX: -20; relativeY: -20; radiusX: 20; radiusY: 20; }
+            PathLine { x: 40; y: 20; }
+            PathArc { relativeX: 20; relativeY: -20; radiusX: 20; radiusY: 20; }
+        }
+    }
 
-    // Top Widgets
-    WorkspaceIndicator {}
+  // Top Widgets
+    WorkspaceIndicator {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -11
+    }
 
     // Center Widgets
     Clock {
         anchors.centerIn: parent
+        anchors.horizontalCenterOffset: -11
+        
     }
 
     // Bottom Widgets
@@ -37,6 +58,7 @@ PanelWindow {
         spacing: 10
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -11
         anchors.bottomMargin: 20
 
         SystemMonitor {
