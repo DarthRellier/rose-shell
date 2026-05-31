@@ -32,6 +32,7 @@ Item {
             Component.onCompleted: {
                 if (this.WlrLayershell != null) {
                     this.WlrLayershell.layer = WlrLayer.Overlay;
+                    this.WlrLayershell.keyboardFocus = WlrKeyboardFocus.Exclusive
                 }
             }
 
