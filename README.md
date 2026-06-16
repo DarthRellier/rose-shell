@@ -15,6 +15,8 @@ This is Rosé-Shell a Quickshell desktop for [Niri](https://github.com/niri-wm/n
 		- System Tray
 		- Language Indicator/Switcher
 		- Battery Monitor
+		- Toggleable Idle Inhibitor
+			- Notifies when on to prevent accidental usage.
 	- OSD
 		- Audio
 			- Shows mute and volume level
@@ -45,3 +47,7 @@ This is Rosé-Shell a Quickshell desktop for [Niri](https://github.com/niri-wm/n
 				- Keyboard language indicator
 			- Fingerprint
 				- Up to 3 attempts of pam_fprintd.so
+		- Built-In Idle Daemon
+			- Dims Screen
+			- Locks Screen
+			- Turns off Screen
