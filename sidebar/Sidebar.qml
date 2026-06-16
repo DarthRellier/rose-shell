@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Shapes
 import qs.sidebar.widgets.clock
 import qs.sidebar.widgets.workspaces
+import qs.sidebar.widgets.idleInhibit
 import qs.sidebar.widgets.battery
 import qs.sidebar.widgets.system
 import qs.sidebar.widgets.keyboard
@@ -60,9 +61,17 @@ PanelWindow {
     }
 
     // Top Widgets
-    WorkspaceIndicator {
+    Column {
+        spacing: 10
+        anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.horizontalCenterOffset: -10
+        anchors.topMargin: 20
+
+        IdleInhibitButton  {
+            inhibitWindow: root
+        }
+        WorkspaceIndicator {}
     }
 
     // Center Widgets
