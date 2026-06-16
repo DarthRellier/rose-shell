@@ -62,7 +62,7 @@ Button {
                 color: Theme.overlay
                 radius: width / 2
 
-                x: root.active ? 8 : -28
+                x: root.active ? 0 : -28
 
                 Behavior on x {
                     NumberAnimation {
