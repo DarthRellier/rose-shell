@@ -4,11 +4,24 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 import QtQuick
+import qs.services
 
 // Based on Quickshell's lockscreen example
 
 Scope {
     id: root
+
+    function lockScreen() {
+        lock.locked = true;
+        lockContext.pamFprintOriginated = false;
+        lockContext.currentText = "";
+        delayPam.restart();
+        // lockContext.startPamFprint()
+    }
+
+    function unlockScreen() {
+        lock.locked = false;
+    }
 
     LockContext {
         id: lockContext
@@ -32,18 +45,20 @@ Scope {
         target: "lockscreen"
 
         function lock() {
-            lock.locked = true;
-            lockContext.pamFprintOriginated = false;
-            lockContext.currentText = ""
-            delayPam.restart();
-        // lockContext.startPamFprint()
+            root.lockScreen()
         }
 
         function unlock() {
-            lock.locked = false
+            root.unlockScreen()
         }
     }
 
+    Connections {
+        target: Idle
+        function onIdleLock() {
+            root.lockScreen()
+        }
+    }
     Timer {
         id: delayPam
 
