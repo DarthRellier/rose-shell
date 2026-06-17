@@ -51,10 +51,11 @@ ThemeButton {
     }
 
     IdleMonitor {
-        timeout: 300
+        timeout: 150
         respectInhibitors: false
         onIsIdleChanged: {
             if (isIdle && idleBlocker.enabled) {
+                console.info("hi")
                 inhibitNotification.running = true
             }
         }

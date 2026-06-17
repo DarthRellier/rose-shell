@@ -10,7 +10,6 @@ Singleton {
     id: root
     signal idleLock
 
-    property int targetPct
     property int savedPct
 
     // Dim
@@ -19,7 +18,6 @@ Singleton {
         onIsIdleChanged: {
             if (isIdle) {
                 root.savedPct = Brightness.brightnessPct
-                root.targetPct = Math.round((Brightness.brightnessPct / 2) / 5) * 5
                 reduceBrightnessTimer.running = true
             } else {
                 console.info(root.savedPct)
@@ -55,7 +53,7 @@ Singleton {
         repeat: true
         onTriggered: {
             reduceBrightness.running = true
-            if (Brightness.brightnessPct <= root.targetPct) {
+            if (Brightness.brightnessPct <= 30) {
                 this.running = false
             }
         }
@@ -70,7 +68,7 @@ Singleton {
     Process {
         id: reduceBrightness
         running: false
-        command: ["brightnessctl", "s", "5%-"]
+        command: ["brightnessctl", "s", "10%-"]
     }
 
     Process {
