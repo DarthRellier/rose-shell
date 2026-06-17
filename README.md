@@ -15,6 +15,7 @@ This is Rosé-Shell a Quickshell desktop for [Niri](https://github.com/niri-wm/n
 		- System Tray
 		- Language Indicator/Switcher
 		- Battery Monitor
+			- Sends notification when battery falls below 20% and again when it falls below 10%
 		- Toggleable Idle Inhibitor
 			- Notifies when on to prevent accidental usage.
 	- OSD
