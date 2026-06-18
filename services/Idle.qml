@@ -21,7 +21,7 @@ Singleton {
                 reduceBrightnessTimer.running = true
             } else {
                 console.info(root.savedPct)
-                restoreBrightness.running = true;
+                restoreBrightnessTimer.running = true;
             }
         }
     }
@@ -59,6 +59,20 @@ Singleton {
         }
     }
 
+    Timer {
+        id: restoreBrightnessTimer
+        interval: 15
+        running: false 
+        repeat: true
+        onTriggered: {
+            if (Brightness.brightnessPct >= root.savedPct) {
+                this.running = false
+            }
+            restoreBrightness.running = true
+        }
+    }
+
+
     Process {
         id: sleepProcess
         running: false
@@ -74,6 +88,6 @@ Singleton {
     Process {
         id: restoreBrightness
         running: false
-        command: ["brightnessctl", "s", root.savedPct.toString() + "%"]
+        command: ["brightnessctl", "s", "+10%"]
     }
 }
