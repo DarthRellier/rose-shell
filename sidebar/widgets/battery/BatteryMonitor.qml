@@ -16,11 +16,11 @@ Rectangle {
         spacing: 5
 
         Text {
-            text: `${getSymbol(SystemInfo.battery.percentage, SystemInfo.battery.state == 1)}`
+            text: `${getSymbol(Battery.battery.percentage, Battery.battery.state == 1)}`
             font.family: Theme.symbols
             font.pointSize: 12
             horizontalAlignment: Text.AlignHCenter
-            color: getColor(SystemInfo.battery.percentage, SystemInfo.battery.state == 1)
+            color: getColor(Battery.battery.percentage, Battery.battery.state == 1)
             anchors {
                 left: parent.left
                 right: parent.right
@@ -95,7 +95,7 @@ Rectangle {
 
         Text {
             id: batterytext
-            text: Math.min(Math.round((SystemInfo.battery.percentage * 100)), 99).toString().padStart(2, "0")
+            text: Math.min(Math.round((Battery.battery.percentage * 100)), 99).toString().padStart(2, "0")
             font.family: Theme.font
             font.pointSize: 11
             color: Theme.rose

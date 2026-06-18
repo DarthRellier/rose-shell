@@ -101,7 +101,7 @@ PanelWindow {
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        Battery {
+        BatteryMonitor {
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }

@@ -2,14 +2,10 @@ pragma Singleton
 
 import Quickshell
 import Quickshell.Io
-import Quickshell.Services.UPower
 import QtQuick
 
 Singleton {
     id: root
-
-    // Battery Property
-    readonly property UPowerDevice battery: UPower.displayDevice
 
     // Memory Properties
     property real memTotal
@@ -79,34 +75,5 @@ Singleton {
             // Reset Interval
             interval = 5000;
         }
-    }
-
-    // Battery Notification
-    Timer {
-        interval: 90000
-        running: true
-        repeat: true
-        onTriggered: {
-            if (root.battery.percentage < .20) {
-                veryLowBattery.running = true;
-                console.info("yahaha");
-                console.info(root.battery.percentage)
-            } else if (root.battery.percentage < .10) {
-                lowBattery.running = true;
-                console.info("yehehe");
-            }
-        }
-    }
-
-    Process {
-        id: veryLowBattery
-        running: false
-        command: ["notify-send", "Low Battery", "Battery is less than 10%, plug in device immediatetly to avoid a shutdown.", "--urgency=critical"]
-    }
-
-    Process {
-        id: lowBattery
-        running: false
-        command: ["notify-send", "Low Battery", "Battery is less than 20%, plug in device to avoid a shutdown!", "--urgency=normal"]
     }
 }
