@@ -14,7 +14,7 @@ Singleton {
 
     // Dim
     IdleMonitor {
-        timeout: 150
+        timeout: 15
         onIsIdleChanged: {
             if (isIdle) {
                 root.savedPct = Brightness.brightnessPct
@@ -48,7 +48,7 @@ Singleton {
 
     Timer {
         id: reduceBrightnessTimer
-        interval: 30
+        interval: 15
         running: false 
         repeat: true
         onTriggered: {
