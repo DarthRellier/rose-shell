@@ -14,7 +14,7 @@ Singleton {
 
     // Dim
     IdleMonitor {
-        timeout: 15
+        timeout: 240
         onIsIdleChanged: {
             if (isIdle) {
                 root.savedPct = Brightness.brightnessPct
