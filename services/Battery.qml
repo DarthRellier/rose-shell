@@ -8,16 +8,18 @@ import QtQuick
 Singleton {
     id: root
     readonly property UPowerDevice battery: UPower.displayDevice
-    
+
     Timer {
         interval: 90000
         running: true
         repeat: true
         onTriggered: {
-            if (root.battery.percentage < .20) {
-                lowBattery.running = true;
-            } else if (root.battery.percentage < .10) {
-                veryLowBattery.running = true;
+            if (root.battery.state == UPowerDeviceState.Discharging) {
+                if (root.battery.percentage < .10) {
+                    veryLowBattery.running = true;
+                } else if (root.battery.percentage < .20) {
+                    lowBattery.running = true;
+                }
             }
         }
     }
