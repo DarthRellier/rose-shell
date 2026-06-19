@@ -48,7 +48,7 @@ Singleton {
 
     Timer {
         id: reduceBrightnessTimer
-        interval: 15
+        interval: 5
         running: false 
         repeat: true
         onTriggered: {
@@ -61,7 +61,7 @@ Singleton {
 
     Timer {
         id: restoreBrightnessTimer
-        interval: 15
+        interval: 5
         running: false 
         repeat: true
         onTriggered: {
@@ -82,12 +82,12 @@ Singleton {
     Process {
         id: reduceBrightness
         running: false
-        command: ["brightnessctl", "s", "10%-"]
+        command: ["brightnessctl", "s", "5%-"]
     }
 
     Process {
         id: restoreBrightness
         running: false
-        command: ["brightnessctl", "s", "+10%"]
+        command: ["brightnessctl", "s", "+5%"]
     }
 }
