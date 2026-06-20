@@ -1,8 +1,6 @@
 pragma ComponentBehavior: Bound
 
-import Quickshell
 import qs
-import qs.components.sidebar
 import QtQuick
 import QtQuick.Controls
 
@@ -18,6 +16,8 @@ Button {
     property real backgroundRadius
     property real heightPadding: 20
     property real widthPadding: 0
+    property bool autoImplicitHeight: false
+    property bool autoImplicitWidth: false
 
     property bool useSymbolFont: false
 
@@ -25,6 +25,9 @@ Button {
     bottomPadding: heightPadding / 2
     leftPadding: widthPadding / 2
     rightPadding: widthPadding / 2
+
+    implicitHeight: autoImplicitHeight ? background.implicitHeight : undefined
+    implicitWidth: autoImplicitWidth ? background.implicitWidth : undefined
 
     contentItem: Text {
         id: contentText

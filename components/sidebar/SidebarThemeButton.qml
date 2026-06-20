@@ -7,6 +7,6 @@ import QtQuick
 import QtQuick.Controls
 
 ThemeButton {
-    implicitHeight: background.implicitHeight
-    implicitWidth: background.implicitWidth
+    autoImplicitHeight: true
+    autoImplicitWidth: true
 }
