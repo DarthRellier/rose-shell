@@ -23,7 +23,7 @@ Singleton {
     ]
 
     readonly property var powerChords: [
-        {"chord": Qt.Key_L, "chordName": "l", "command": "~/scripts/swaylock/lock.fish", "description": "Lock"},
+        {"chord": Qt.Key_L, "chordName": "l", "command": "qs ipc call lockscreen lock", "description": "Lock"},
         {"chord": Qt.Key_S, "chordName": "s", "command": "systemctl suspend", "description": "Sleep"},
         {"chord": Qt.Key_E, "chordName": "e", "command": "niri msg action quit", "description": "Exit Niri", "modifiers": Qt.ControlModifier | Qt.AltModifier},
         {"chord": Qt.Key_R, "chordName": "r", "command": "reboot", "description": "Reboot", "modifiers": Qt.ControlModifier | Qt.AltModifier},
