@@ -7,14 +7,14 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import qs
 import qs.services
-import qs.components
+import qs.components.general
 
 Rectangle {
     id: root
 
     required property Notification modelData
     property bool hasImage: modelData.image || modelData.appIcon
-    property list<NotificationAction> actualActions: modelData.actions.filter(text => text.strip() != "")
+    property list<NotificationAction> actualActions: modelData.actions.filter(action => action.text.trim() != "")
 
     implicitHeight: contentRow.height + 16
 
@@ -153,6 +153,8 @@ Rectangle {
                         pointSize: 10
 
                         backgroundRadius: 16
+                        heightPadding: 0
+                        widthPadding: 5
 
                         Layout.fillWidth: true
                         Layout.topMargin: 2
