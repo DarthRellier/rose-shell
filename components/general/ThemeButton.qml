@@ -26,9 +26,16 @@ Button {
     leftPadding: widthPadding / 2
     rightPadding: widthPadding / 2
 
-    implicitHeight: autoImplicitHeight ? background.implicitHeight : undefined
-    implicitWidth: autoImplicitWidth ? background.implicitWidth : undefined
+    Component.onCompleted: {
+        if (button.autoImplicitHeight) {
+            button.implicitHeight = backgroundRect.implicitHeight
+        }
 
+        if (button.autoImplicitWidth) {
+            button.implicitWidth = backgroundRect.implicitWidth
+        }
+    }
+    
     contentItem: Text {
         id: contentText
         horizontalAlignment: Text.AlignHCenter
