@@ -52,3 +52,4 @@ This is Rosé-Shell a Quickshell desktop for [Niri](https://github.com/niri-wm/n
 			- Dims Screen
 			- Locks Screen
 			- Turns off Screen
+			- Automatic Screen Lock on Suspend
