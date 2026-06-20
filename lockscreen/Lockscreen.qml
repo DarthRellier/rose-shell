@@ -41,6 +41,7 @@ Scope {
         }
     }
 
+    // Lock Screen Manually
     IpcHandler {
         target: "lockscreen"
 
@@ -53,12 +54,28 @@ Scope {
         }
     }
 
+    // Lock Screen on Idle Timeout
     Connections {
         target: Idle
         function onIdleLock() {
             root.lockScreen()
         }
     }
+
+    //Lock Screen on Suspend
+    Process {
+        running: true
+        command: ["dbus-monitor", "--system", "type='signal',interface='org.freedesktop.login1.Manager',member='PrepareForSleep'"]
+
+        stdout: SplitParser {
+            onRead: line => {
+                if (line.includes("boolean true")) {
+                    root.lockScreen()
+                }
+            }
+        }
+    }
+    
     Timer {
         id: delayPam
 
