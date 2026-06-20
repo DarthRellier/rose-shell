@@ -20,7 +20,6 @@ Singleton {
                 root.savedPct = Brightness.brightnessPct
                 reduceBrightnessTimer.running = true
             } else {
-                console.info(root.savedPct)
                 restoreBrightnessTimer.running = true;
             }
         }
@@ -41,6 +40,7 @@ Singleton {
         timeout: 600
         onIsIdleChanged: {
             if (isIdle) {
+                restoreBrightnessTimer.running = true;
                 sleepProcess.running = true;
             }
         }
