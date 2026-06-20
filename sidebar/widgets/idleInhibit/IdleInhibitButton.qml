@@ -34,8 +34,6 @@ SidebarThemeButton {
     topPadding: 10
     bottomPadding: 10
 
-    backgroundRadius: width / 2
-
     onPressed: {
         button.inhibit = !button.inhibit
     }
