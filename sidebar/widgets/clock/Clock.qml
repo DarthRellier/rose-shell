@@ -5,7 +5,7 @@ import qs.components.sidebar
 import QtQuick
 import QtQuick.Layouts
 
-ThemeWrapperRect {
+SidebarThemePill {
     Column {
         id: timeCol
         anchors.centerIn: parent

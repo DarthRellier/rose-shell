@@ -7,7 +7,7 @@ import qs.services
 import qs.components.sidebar
 import qs.sidebar.widgets.workspaces
 
-ThemeWrapperRect {
+SidebarThemePill {
     height: ((rp.count + 1)  * 28.75) + 20
     
     ListView {

@@ -40,7 +40,7 @@ Button {
         wrapMode: Text.WordWrap
     }
 
-    background: ThemeWrapperRect {
+    background: Rectangle {
         id: backgroundRect
 
         implicitHeight: parent.childrenRect.height + button.heightPadding

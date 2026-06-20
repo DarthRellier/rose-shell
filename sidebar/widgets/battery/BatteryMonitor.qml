@@ -5,7 +5,7 @@ import qs.services
 import qs.components.sidebar
 import QtQuick
 
-ThemeWrapperRect {
+SidebarThemePill {
     Column {
         id: batteryColumn
         anchors.centerIn: parent

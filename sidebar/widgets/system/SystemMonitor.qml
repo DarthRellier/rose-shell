@@ -5,7 +5,7 @@ import qs.components.sidebar
 import qs.services
 import QtQuick
 
-ThemeWrapperRect {
+SidebarThemePill {
     Column {
         id: systemInfoColumn
         anchors.horizontalCenter: parent.horizontalCenter
