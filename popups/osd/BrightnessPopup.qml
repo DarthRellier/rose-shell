@@ -38,6 +38,9 @@ PanelWindow {
 
         color: Theme.overlay
 
+        border.width: Theme.generalBorder
+        border.color: Theme.highlightMed
+
         y: 50
 
         RowLayout {
