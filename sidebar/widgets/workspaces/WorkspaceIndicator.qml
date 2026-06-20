@@ -4,15 +4,11 @@ import Quickshell
 import QtQuick
 import qs
 import qs.services
+import qs.components.sidebar
 import qs.sidebar.widgets.workspaces
 
-Rectangle {
-    width: rp.contentWidth + 25
-    height: (rp.count  * 28.75) + 48.75
-    anchors.horizontalCenter: parent.horizontalCenter
-    radius: width / 2
-    y: 20
-    color: Theme.overlay
+ThemeWrapperRect {
+    height: ((rp.count + 1)  * 28.75) + 20
     
     ListView {
         id: rp

@@ -1,16 +1,11 @@
 import Quickshell
 import qs
 import qs.services
+import qs.components.sidebar
 import QtQuick
 import QtQuick.Layouts
 
-Rectangle {
-    implicitWidth: 27.5
-    implicitHeight: timeCol.height + 15
-    radius: width / 2
-
-    color: Theme.overlay
-
+ThemeWrapperRect {
     Column {
         id: timeCol
         anchors.centerIn: parent

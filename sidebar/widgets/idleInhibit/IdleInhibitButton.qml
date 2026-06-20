@@ -4,9 +4,9 @@ import Quickshell.Wayland
 import QtQuick
 import qs
 import qs.services
-import qs.components
+import qs.components.sidebar
 
-ThemeButton {
+SidebarThemeButton {
     id: button
 
     required property QtObject inhibitWindow

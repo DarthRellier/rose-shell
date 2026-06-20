@@ -1,11 +1,10 @@
 import Quickshell
 import QtQuick
 import qs
-import qs.components
+import qs.components.sidebar
 import qs.services
 
-ThemeButton {
-    id: button
+SidebarThemeButton {
     text: Niri.shortenedKeyboardLayout.toUpperCase()
 
     implicitWidth: 27.5
@@ -14,10 +13,10 @@ ThemeButton {
     pressedFg: Theme.rose
     pointSize: 10.5
 
-    topPadding: 10
-    bottomPadding: 10
+    // topPadding: 10
+    // bottomPadding: 10
 
-    backgroundRadius: width / 2
+    // backgroundRadius: width / 2
 
     onPressed: {
         Niri.switchLayout()

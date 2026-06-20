@@ -6,8 +6,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs
+import qs.components.sidebar
 
-Button {
+SidebarThemeButton {
     id: root
 
     required property var parentWindowObject
@@ -15,29 +16,19 @@ Button {
     property bool loaded: true
     property bool closeTimerRunning: true
 
-    contentItem: Text {
-        text: ""
-        font.family: Theme.symbols
-        font.pointSize: 14
-        verticalAlignment: Text.AlignHCenter
+    text: ""
+    useSymbolFont: true
+    pointSize: 14
 
-        color: Theme.rose
-    }
-
-    background: Rectangle {
-        color: root.pressed ? Theme.highlightMed : Theme.overlay
-        radius: width / 2
-    }
-
-    leftPadding: (27.5 - contentItem.implicitWidth) / 2
-    rightPadding: (27.5 - contentItem.implicitWidth) / 2
-    topPadding: 10
-    bottomPadding: 10
+    normalFg: Theme.rose
+    pressedFg: Theme.rose
+    implicitWidth: 27.5
 
     onPressed: {
         root.loaded = true;
         root.active = !root.active;
     }
+
     LazyLoader {
         active: root.loaded
         

@@ -2,14 +2,10 @@ import Quickshell
 import Quickshell.Widgets
 import qs
 import qs.services
+import qs.components.sidebar
 import QtQuick
 
-Rectangle {
-    implicitWidth: 27.5
-    implicitHeight: batteryColumn.height + 20
-    radius: width / 2
-    color: Theme.overlay
-
+ThemeWrapperRect {
     Column {
         id: batteryColumn
         anchors.centerIn: parent
