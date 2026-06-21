@@ -17,8 +17,12 @@ Singleton {
         stdout: StdioCollector {
             onStreamFinished: {
                 // This means that wallpaper filenames must conform to this format: Display Name-dark/light-version.jpg
-                const labelMatches = this.text.match(/.*\/([^\-]*)\-(\w+)\-*.*\.[jpg|png|jpeg]/)
+                const labelMatches = this.text.match(/.*\/([^\-]*)\-(\w+)\-*.*\.(jpg|png|jpeg)/)
                 const paperMatch = this.text.match(/.*\/([^\.]*)(\.\w+)/)
+
+                if (!labelMatches || !paperMatch) {
+                    console.error("could not match wallaper names to regex")
+                }
                 
                 root.paperLabel = labelMatches[1].trim()
                 root.labelIsLight = labelMatches[2] == "light" ? true : false
