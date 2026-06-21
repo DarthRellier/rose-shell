@@ -14,7 +14,7 @@ Button {
 
     property real pointSize: 12
     property real backgroundRadius
-    property real heightPadding: 20
+    property real heightPadding: Theme.generalPadding
     property real widthPadding: 0
 
     property bool useSymbolFont: false
@@ -44,7 +44,7 @@ Button {
         implicitHeight: parent.childrenRect.height + button.heightPadding
         implicitWidth: parent.childrenRect.width + button.widthPadding
 
-        radius: button.backgroundRadius || width / 2
+        radius: button.backgroundRadius || button.backgroundRadius == 0 ? button.backgroundRadius : width / 2
 
         color: button.pressed ? button.pressedBg : button.normalBg
     }
