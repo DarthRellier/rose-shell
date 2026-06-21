@@ -13,7 +13,7 @@ Button {
     property color normalFg: Theme.text
 
     property real pointSize: 12
-    property real backgroundRadius
+    property real backgroundRadius: width / 2
     property real heightPadding: Theme.generalPadding
     property real widthPadding: 0
 
@@ -44,7 +44,7 @@ Button {
         implicitHeight: parent.childrenRect.height + button.heightPadding
         implicitWidth: parent.childrenRect.width + button.widthPadding
 
-        radius: button.backgroundRadius || button.backgroundRadius == 0 ? button.backgroundRadius : width / 2
+        radius: button.backgroundRadius
 
         color: button.pressed ? button.pressedBg : button.normalBg
     }
