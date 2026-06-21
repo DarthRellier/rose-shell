@@ -15,57 +15,57 @@ SidebarThemePill {
         // Memory
         Text {
             text: ""
-            font.family: Theme.symbols
+            font.family: ThemeFonts.symbols
             font.pointSize: 12
-            color: Theme.text
+            color: ThemeColors.text
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
             text: `${Math.round(SystemInfo.memUsedPct * 100).toString().padStart(2, "0")}`
-            font.family: Theme.font
+            font.family: ThemeFonts.font
             font.pointSize: 10
-            color: Theme.rose
+            color: ThemeColors.rose
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
         }
 
         HSeperator {
-            seperatorWidth: Theme.sidebarPillWidth
+            seperatorWidth: ThemeMetrics.sidebarPillWidth
             seperatorHeight: 3
         }
 
         // Cpu
         Text {
             text: ""
-            font.family: Theme.symbols
+            font.family: ThemeFonts.symbols
             font.pointSize: 12
-            color: Theme.text
+            color: ThemeColors.text
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
             text: `${Math.round(SystemInfo.cpuUsage * 100).toString().padStart(2, "0")}`
-            font.family: Theme.font
+            font.family: ThemeFonts.font
             font.pointSize: 10
-            color: Theme.rose
+            color: ThemeColors.rose
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
         }
 
         HSeperator {
-            seperatorWidth: Theme.sidebarPillWidth
+            seperatorWidth: ThemeMetrics.sidebarPillWidth
             seperatorHeight: 3
         }
 
         // Temp
         Text {
             text: `${getIcon(SystemInfo.tempC)}`
-            font.family: Theme.symbols
+            font.family: ThemeFonts.symbols
             font.pointSize: 12
-            color: SystemInfo.tempC >= 70 ? Theme.love : Theme.text
+            color: SystemInfo.tempC >= 70 ? ThemeColors.love : ThemeColors.text
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
 
@@ -86,9 +86,9 @@ SidebarThemePill {
 
         Text {
             text: `${Math.round(SystemInfo.tempC)}`
-            font.family: Theme.font
+            font.family: ThemeFonts.font
             font.pointSize: 10
-            color: Theme.rose
+            color: ThemeColors.rose
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
         }

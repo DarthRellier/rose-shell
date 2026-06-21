@@ -17,7 +17,7 @@ Column {
         implicitWidth: root.seperatorWidth * 0.75
         radius: width / 2
         anchors.horizontalCenter: parent.horizontalCenter
-        color: Theme.muted
+        color: ThemeColors.muted
     }
 
     Item {

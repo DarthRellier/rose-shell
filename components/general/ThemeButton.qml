@@ -7,14 +7,14 @@ import QtQuick.Controls
 Button {
     id: button
 
-    property color pressedBg: Theme.highlightMed
-    property color normalBg: Theme.overlay
-    property color pressedFg: Theme.text
-    property color normalFg: Theme.text
+    property color pressedBg: ThemeColors.highlightMed
+    property color normalBg: ThemeColors.overlay
+    property color pressedFg: ThemeColors.text
+    property color normalFg: ThemeColors.text
 
     property real pointSize: 12
     property real backgroundRadius: width / 2
-    property real heightPadding: Theme.generalPadding
+    property real heightPadding: ThemeMetrics.generalPadding
     property real widthPadding: 0
 
     property bool useSymbolFont: false
@@ -31,7 +31,7 @@ Button {
         text: button.text
         color: button.pressed ? button.pressedFg : button.normalFg
 
-        font.family: button.useSymbolFont ? Theme.symbols : Theme.font
+        font.family: button.useSymbolFont ? ThemeFonts.symbols : ThemeFonts.font
         font.pointSize: button.pointSize
 
         elide: Text.ElideRight

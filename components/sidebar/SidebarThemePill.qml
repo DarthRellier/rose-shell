@@ -2,9 +2,9 @@ import QtQuick
 import qs
 
 Rectangle {
-    implicitWidth: Theme.sidebarPillWidth
-    implicitHeight: childrenRect.height + Theme.sidebarPadding
+    implicitWidth: ThemeMetrics.sidebarPillWidth
+    implicitHeight: childrenRect.height + ThemeMetrics.sidebarPadding
     radius: width / 2
 
-    color: Theme.overlay
+    color: ThemeColors.overlay
 }

@@ -13,8 +13,8 @@ PanelWindow {
     id: root
 
     anchors.bottom: true
-    implicitHeight: Theme.osdPopupHeight + Theme.osdPopupBottomPadding
-    implicitWidth: Theme.osdPopupWidth
+    implicitHeight: ThemeMetrics.osdPopupHeight + ThemeMetrics.osdPopupBottomPadding
+    implicitWidth: ThemeMetrics.osdPopupWidth
 
     color: "transparent"
     aboveWindows: true
@@ -32,16 +32,16 @@ PanelWindow {
     Rectangle {
         id: contentRect
 
-        implicitHeight: Theme.osdPopupHeight
-        implicitWidth: Theme.osdPopupWidth
-        radius: Theme.osdPopupHeight / 2
+        implicitHeight: ThemeMetrics.osdPopupHeight
+        implicitWidth: ThemeMetrics.osdPopupWidth
+        radius: ThemeMetrics.osdPopupHeight / 2
 
-        color: Theme.overlay
+        color: ThemeColors.overlay
 
-        border.width: Theme.generalBorder
-        border.color: Theme.highlightMed
+        border.width: ThemeMetrics.generalBorder
+        border.color: ThemeColors.highlightMed
 
-        y: Theme.osdPopupBottomPadding + height
+        y: ThemeMetrics.osdPopupBottomPadding + height
 
         RowLayout {
             anchors.fill: parent
@@ -51,9 +51,9 @@ PanelWindow {
 
             Text {
                 text: getBrightnessSymbol(Brightness.brightnessPct)
-                font.family: Theme.symbols
+                font.family: ThemeFonts.symbols
                 font.pointSize: 12
-                color: Theme.text
+                color: ThemeColors.text
 
                 Layout.leftMargin: 10
 
@@ -70,8 +70,8 @@ PanelWindow {
 
             ProgressBar {
                 id: progressBar
-                Layout.preferredHeight: Theme.osdProgressBarHeight
-                Layout.preferredWidth: Theme.osdProgressBarWidth
+                Layout.preferredHeight: ThemeMetrics.osdProgressBarHeight
+                Layout.preferredWidth: ThemeMetrics.osdProgressBarWidth
 
                 background: Rectangle {
                     anchors.fill: parent
@@ -82,7 +82,7 @@ PanelWindow {
                     anchors.fill: parent
                     Rectangle {
                         anchors.fill: parent
-                        color: Theme.surface
+                        color: ThemeColors.surface
                         radius: height / 2
                     }
                     Rectangle {
@@ -93,7 +93,7 @@ PanelWindow {
                         }
                         width: progressBar.visualPosition * parent.width
                         radius: height / 2
-                        color: Theme.rose
+                        color: ThemeColors.rose
                     }
                 }
 
@@ -117,7 +117,7 @@ PanelWindow {
             running: false
 
             onTriggered: {
-                contentRect.y = Theme.osdPopupBottomPadding + root.height;
+                contentRect.y = ThemeMetrics.osdPopupBottomPadding + root.height;
             }
         }
 

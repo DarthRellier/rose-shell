@@ -9,11 +9,11 @@ SidebarThemePill {
     Column {
         id: batteryColumn
         anchors.centerIn: parent
-        spacing: Theme.smallSpacing
+        spacing: ThemeMetrics.smallSpacing
 
         Text {
             text: `${getSymbol(Battery.battery.percentage, Battery.battery.state == 1)}`
-            font.family: Theme.symbols
+            font.family: ThemeFonts.symbols
             font.pointSize: 12
             horizontalAlignment: Text.AlignHCenter
             color: getColor(Battery.battery.percentage, Battery.battery.state == 1)
@@ -78,13 +78,13 @@ SidebarThemePill {
 
             function getColor(chargePct, charging) {
                 if (Math.round(chargePct * 10) * 10 == 100) {
-                    return Theme.text
+                    return ThemeColors.text
                 } else if (Math.round(chargePct * 10) * 10 < 30) {
-                    return charging ? Theme.gold : Theme.love
+                    return charging ? ThemeColors.gold : ThemeColors.love
                 } else if (charging) {
-                    return Theme.rose
+                    return ThemeColors.rose
                 } else {
-                    return Theme.text;
+                    return ThemeColors.text;
                 }
             }
         }
@@ -92,9 +92,9 @@ SidebarThemePill {
         Text {
             id: batterytext
             text: Math.min(Math.round((Battery.battery.percentage * 100)), 99).toString().padStart(2, "0")
-            font.family: Theme.font
+            font.family: ThemeFonts.font
             font.pointSize: 11
-            color: Theme.rose
+            color: ThemeColors.rose
             horizontalAlignment: Text.AlignHCenter
         }
     }

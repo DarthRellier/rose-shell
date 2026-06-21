@@ -8,9 +8,9 @@ Text {
     text: context.showPamFprintAllowed ? "Enter password or\nfingerprint to unlock" : "Enter password\nto unlock"
 
     font.pointSize: 13
-    font.family: Theme.font
+    font.family: ThemeFonts.font
 
-    color: Theme.rose
+    color: ThemeColors.rose
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
 }

@@ -8,8 +8,8 @@ Text {
     text: Niri.shortenedKeyboardLayout.toUpperCase()
 
     font.pointSize: 11
-    font.family: Theme.font
+    font.family: ThemeFonts.font
 
-    color: passwordBox.passwordCharsGreaterThanZero ? Theme.rose : "transparent"
+    color: passwordBox.passwordCharsGreaterThanZero ? ThemeColors.rose : "transparent"
     horizontalAlignment: Text.AlignHCenter
 }

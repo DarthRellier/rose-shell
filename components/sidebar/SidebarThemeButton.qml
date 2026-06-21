@@ -6,5 +6,5 @@ import QtQuick
 
 ThemeButton {
     implicitHeight: background.implicitHeight
-    implicitWidth: Theme.sidebarPillWidth
+    implicitWidth: ThemeMetrics.sidebarPillWidth
 }

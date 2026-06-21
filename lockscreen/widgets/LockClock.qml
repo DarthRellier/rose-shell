@@ -6,9 +6,9 @@ Text {
     text: Qt.formatDateTime(Time.clock.date, "h:mm AP")
 
     font.pointSize: 48
-    font.family: Theme.font
+    font.family: ThemeFonts.font
 
-    color: Theme.rose
+    color: ThemeColors.rose
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
 }

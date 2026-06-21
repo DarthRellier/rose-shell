@@ -7,14 +7,9 @@ import qs.services
 SidebarThemeButton {
     text: Niri.shortenedKeyboardLayout.toUpperCase()
 
-    normalFg: Theme.rose
-    pressedFg: Theme.rose
+    normalFg: ThemeColors.rose
+    pressedFg: ThemeColors.rose
     pointSize: 10.5
-
-    // topPadding: 10
-    // bottomPadding: 10
-
-    // backgroundRadius: width / 2
 
     onPressed: {
         Niri.switchLayout()

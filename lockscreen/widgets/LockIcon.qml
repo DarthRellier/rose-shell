@@ -11,24 +11,18 @@ Rectangle {
     required property LockContext context
 
     signal iconAnimFinished
-    // // Layout.preferredHeight: 150
-    // // Layout.preferredWidth: 150
-
-    // // Layout.alignment: Qt.AlignHCenter
-    // Layout.topMargin: 15
-    // Layout.bottomMargin: 15
 
     radius: width / 2
-    color: Qt.alpha(Theme.surface, 0.65)
+    color: Qt.alpha(ThemeColors.surface, 0.65)
 
     Text {
         id: lockIcon
         text: ""
 
         font.pointSize: 55
-        font.family: Theme.symbols
+        font.family: ThemeFonts.symbols
 
-        color: root.context.showPamFprintAllowed ? Theme.text : Theme.gold
+        color: root.context.showPamFprintAllowed ? ThemeColors.text : ThemeColors.gold
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
@@ -89,11 +83,11 @@ Rectangle {
             }
 
             onStarted: () => {
-                lockIcon.color = Theme.love;
+                lockIcon.color = ThemeColors.love;
             }
 
             onFinished: () => {
-                lockIcon.color = root.context.showPamFprintAllowed ? Theme.text : Theme.gold;
+                lockIcon.color = root.context.showPamFprintAllowed ? ThemeColors.text : ThemeColors.gold;
             }
         }
 
@@ -101,7 +95,7 @@ Rectangle {
             id: successSequence
 
             onStarted: () => {
-                lockIcon.color = Theme.rose;
+                lockIcon.color = ThemeColors.rose;
                 lockIcon.rotation = 0;
             }
 

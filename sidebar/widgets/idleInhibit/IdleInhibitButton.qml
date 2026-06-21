@@ -25,15 +25,11 @@ SidebarThemeButton {
         fillMode: Image.PreserveAspectFit
     }
     
-    implicitWidth: Theme.sidebarPillWidth
+    implicitWidth: ThemeMetrics.sidebarPillWidth
     implicitHeight: niriIcon.height
 
-    normalFg: Theme.rose
-    pressedFg: Theme.rose
-    // pointSize: 10.5
-
-    // topPadding: 10
-    // bottomPadding: 10
+    normalFg: ThemeColors.rose
+    pressedFg: ThemeColors.rose
 
     onPressed: {
         button.inhibit = !button.inhibit

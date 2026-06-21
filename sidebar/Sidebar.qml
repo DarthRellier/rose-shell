@@ -22,15 +22,15 @@ PanelWindow {
         bottom: true
     }
 
-    implicitWidth: Theme.fullSidebarWidth
-    exclusiveZone: Theme.fullSidebarWidth - Theme.sidebarCurveSize
+    implicitWidth: ThemeMetrics.fullSidebarWidth
+    exclusiveZone: ThemeMetrics.fullSidebarWidth - ThemeMetrics.sidebarCurveSize
 
     color: "transparent"
     Shape {
         id: backgroundShape
         ShapePath {
             strokeWidth: 0
-            fillColor: Theme.surface
+            fillColor: ThemeColors.surface
             startX: 0
             startY: 0
             PathLine {
@@ -38,24 +38,24 @@ PanelWindow {
                 relativeY: root.height
             }
             PathLine {
-                relativeX: Theme.fullSidebarWidth
+                relativeX: ThemeMetrics.fullSidebarWidth
                 relativeY: 0
             }
             PathArc {
-                relativeX: -1 * Theme.sidebarCurveSize
-                relativeY: -1 * Theme.sidebarCurveSize
-                radiusX: Theme.sidebarCurveRadius
-                radiusY: Theme.sidebarCurveRadius
+                relativeX: -1 * ThemeMetrics.sidebarCurveSize
+                relativeY: -1 * ThemeMetrics.sidebarCurveSize
+                radiusX: ThemeMetrics.sidebarCurveRadius
+                radiusY: ThemeMetrics.sidebarCurveRadius
             }
             PathLine {
-                x: Theme.fullSidebarWidth - Theme.sidebarCurveSize
-                y: Theme.sidebarCurveSize
+                x: ThemeMetrics.fullSidebarWidth - ThemeMetrics.sidebarCurveSize
+                y: ThemeMetrics.sidebarCurveSize
             }
             PathArc {
-                relativeX: Theme.sidebarCurveSize
-                relativeY: -1 * Theme.sidebarCurveSize
-                radiusX: Theme.sidebarCurveRadius
-                radiusY: Theme.sidebarCurveRadius
+                relativeX: ThemeMetrics.sidebarCurveSize
+                relativeY: -1 * ThemeMetrics.sidebarCurveSize
+                radiusX: ThemeMetrics.sidebarCurveRadius
+                radiusY: ThemeMetrics.sidebarCurveRadius
             }
         }
     }

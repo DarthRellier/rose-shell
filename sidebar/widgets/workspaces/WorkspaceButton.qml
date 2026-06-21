@@ -13,9 +13,9 @@ RoundButton {
     required property var count
     required property string workspaceName
     property bool active: Niri.activeWorkspaceId === workspaceId
-    property var color: Theme.subtle
+    property var color: ThemeColors.subtle
 
-    implicitWidth: Theme.sidebarPillWidth / 2
+    implicitWidth: ThemeMetrics.sidebarPillWidth / 2
     radius: width / 2
     background: Rectangle {
         implicitWidth: root.width
@@ -31,8 +31,8 @@ RoundButton {
             PropertyChanges {
                 target: root
 
-                height: Theme.workspaceButtonHeightActive
-                color: workspaceName ? Theme.foam : Theme.rose
+                height: ThemeMetrics.workspaceButtonHeightActive
+                color: workspaceName ? ThemeColors.foam : ThemeColors.rose
             }
         },
         State {
@@ -41,8 +41,8 @@ RoundButton {
             PropertyChanges {
                 target: root
 
-                height: Theme.workspaceButtonHeightInactive
-                color: workspaceName ? Theme.foam : Theme.subtle
+                height: ThemeMetrics.workspaceButtonHeightInactive
+                color: workspaceName ? ThemeColors.foam : ThemeColors.subtle
             }
         }
     ]

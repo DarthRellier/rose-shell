@@ -13,25 +13,25 @@ Rectangle {
     property bool hasImage: modelData.image || modelData.appIcon
     property list<NotificationAction> actualActions: modelData.actions.filter(action => action.text.trim() != "")
 
-    implicitHeight: contentRow.height + Theme.generalPadding
+    implicitHeight: contentRow.height + ThemeMetrics.generalPadding
 
-    color: Theme.overlay
-    radius: Theme.notifRadius
+    color: ThemeColors.overlay
+    radius: ThemeMetrics.notifRadius
 
-    border.color: modelData.urgency == NotificationUrgency.Critical ? Theme.love : root.modelData.urgency == NotificationUrgency.Low ? Theme.foam : Theme.rose
-    border.width: Theme.generalBorder
+    border.color: modelData.urgency == NotificationUrgency.Critical ? ThemeColors.love : root.modelData.urgency == NotificationUrgency.Low ? ThemeColors.foam : ThemeColors.rose
+    border.width: ThemeMetrics.generalBorder
 
     RowLayout {
         id: contentRow
-        spacing: Theme.notifPaddingSize
+        spacing: ThemeMetrics.notifPaddingSize
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
 
-            topMargin: Theme.notifPaddingSize
-            bottomMargin: Theme.notifPaddingSize
-            leftMargin: Theme.notifPaddingSize
+            topMargin: ThemeMetrics.notifPaddingSize
+            bottomMargin: ThemeMetrics.notifPaddingSize
+            leftMargin: ThemeMetrics.notifPaddingSize
         }
 
         Image {
@@ -39,8 +39,8 @@ Rectangle {
 
             source: getImageSource(root.modelData)
 
-            Layout.preferredHeight: Theme.notifIconSize
-            Layout.preferredWidth: Theme.notifIconSize
+            Layout.preferredHeight: ThemeMetrics.notifIconSize
+            Layout.preferredWidth: ThemeMetrics.notifIconSize
 
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignRight
@@ -84,11 +84,11 @@ Rectangle {
 
             Text {
                 text: root.modelData.summary
-                font.family: Theme.boldFont
-                color: root.modelData.urgency == NotificationUrgency.Critical ? Theme.love : root.modelData.urgency == NotificationUrgency.Low ? Theme.foam : Theme.rose
+                font.family: ThemeFonts.boldFont
+                color: root.modelData.urgency == NotificationUrgency.Critical ? ThemeColors.love : root.modelData.urgency == NotificationUrgency.Low ? ThemeColors.foam : ThemeColors.rose
 
                 Layout.fillWidth: true
-                Layout.rightMargin: Theme.notifRightMargin * 2
+                Layout.rightMargin: ThemeMetrics.notifRightMargin * 2
                 Layout.topMargin: 0
 
                 wrapMode: Text.WordWrap
@@ -103,14 +103,14 @@ Rectangle {
 
             Text {
                 text: root.modelData.body
-                font.family: Theme.font
-                color: Theme.text
+                font.family: ThemeFonts.font
+                color: ThemeColors.text
 
                 Layout.fillWidth: true
                 Layout.fillHeight: !root.hasImage ? true : false
-                Layout.rightMargin: Theme.notifRightMargin
+                Layout.rightMargin: ThemeMetrics.notifRightMargin
 
-                maximumLineCount: Theme.notifMaxLines
+                maximumLineCount: ThemeMetrics.notifMaxLines
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
 
@@ -123,7 +123,7 @@ Rectangle {
 
             RowLayout {
                 id: actionRow
-                spacing: Theme.notifPaddingSize
+                spacing: ThemeMetrics.notifPaddingSize
 
                 Repeater {
                     id: actionButtons
@@ -134,12 +134,12 @@ Rectangle {
                         text: modelData.text
                         pointSize: 10
 
-                        backgroundRadius: Theme.notifRadius
+                        backgroundRadius: ThemeMetrics.notifRadius
                         heightPadding: 0
                         widthPadding: 0
 
                         Layout.fillWidth: true
-                        Layout.rightMargin: Theme.notifRightMargin
+                        Layout.rightMargin: ThemeMetrics.notifRightMargin
 
                         onClicked: modelData.invoke()
                     }

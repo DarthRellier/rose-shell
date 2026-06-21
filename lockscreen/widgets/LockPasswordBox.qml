@@ -79,10 +79,10 @@ ColumnLayout {
                 id: dotText
                 text: ""
 
-                font.family: Theme.symbols
+                font.family: ThemeFonts.symbols
                 font.pointSize: 16
 
-                color: passwordBox.enabled ? Theme.rose : Theme.subtle
+                color: passwordBox.enabled ? ThemeColors.rose : ThemeColors.subtle
 
                 ListView.onRemove: removeAnim.start()
                 ListView.onAdd: addAnim.start()

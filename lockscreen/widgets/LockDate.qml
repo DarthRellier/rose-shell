@@ -6,9 +6,9 @@ Text {
     text: Qt.formatDate(new Date(), "dddd, MMMM d, yyyy")
 
     font.pointSize: 11
-    font.family: Theme.font
+    font.family: ThemeFonts.font
 
-    color: Theme.rose
+    color: ThemeColors.rose
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
 }

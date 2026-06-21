@@ -13,8 +13,8 @@ SidebarThemePill {
         spacing: 2
         Text {
             text: Time.clock.hours != 0 && Time.clock.hours != 12 ? (Time.clock.hours % 12).toString().padStart(2, "0") : 12
-            color: Theme.rose
-            font.family: Theme.font
+            color: ThemeColors.rose
+            font.family: ThemeFonts.font
             font.weight: Font.DemiBold
             font.pointSize: 12
             anchors.horizontalCenter: parent.horizontalCenter
@@ -22,16 +22,16 @@ SidebarThemePill {
 
         Text {
             text: Time.clock.hours < 12 ? "AM" : "PM"
-            font.family: Theme.font
+            font.family: ThemeFonts.font
             font.pointSize: 6
-            color: Theme.subtle
+            color: ThemeColors.subtle
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Text {
             text: Time.clock.minutes.toString().padStart(2, "0")
-            color: Theme.rose
-            font.family: Theme.font
+            color: ThemeColors.rose
+            font.family: ThemeFonts.font
             font.weight: Font.DemiBold
             font.pointSize: 12
             anchors.horizontalCenter: parent.horizontalCenter

@@ -36,25 +36,25 @@ Item {
                 }
             }
 
-            implicitWidth: Theme.chordListWidth + Theme.chordListPadding
-            implicitHeight: listColumn.height + Theme.generalPadding
+            implicitWidth: ThemeMetrics.chordListWidth + ThemeMetrics.chordListPadding
+            implicitHeight: listColumn.height + ThemeMetrics.generalPadding
 
             color: "transparent"
 
             Rectangle {
-                width: parent.width - Theme.chordListPadding
+                width: parent.width - ThemeMetrics.chordListPadding
                 height: parent.height
-                anchors.rightMargin: Theme.chordListPadding
+                anchors.rightMargin: ThemeMetrics.chordListPadding
 
-                color: Theme.surface
+                color: ThemeColors.surface
                 radius: panel.width / 16
 
                 border {
-                    width: Theme.generalBorder
-                    color: Theme.highlightMed
+                    width: ThemeMetrics.generalBorder
+                    color: ThemeColors.highlightMed
                 }
 
-                x: root.active ? 0 : Theme.chordListWidth
+                x: root.active ? 0 : ThemeMetrics.chordListWidth
 
                 Behavior on x {
                     NumberAnimation {
@@ -83,28 +83,28 @@ Item {
 
                             required property var modelData
 
-                            Layout.leftMargin: Theme.chordListLeftMargin
-                            Layout.topMargin: Theme.chordListVSpacing / 2
-                            Layout.bottomMargin: Theme.chordListVSpacing / 2
+                            Layout.leftMargin: ThemeMetrics.chordListLeftMargin
+                            Layout.topMargin: ThemeMetrics.chordListVSpacing / 2
+                            Layout.bottomMargin: ThemeMetrics.chordListVSpacing / 2
 
                             Text {
                                 text: textRow.modelData.chordName.toUpperCase()
 
-                                font.family: Theme.boldFont
+                                font.family: ThemeFonts.boldFont
                                 font.pointSize: 12
 
-                                color: textRow.modelData.modifiers ? Theme.love : Theme.rose
+                                color: textRow.modelData.modifiers ? ThemeColors.love : ThemeColors.rose
 
-                                Layout.rightMargin: Theme.chordListGapSize - width
+                                Layout.rightMargin: ThemeMetrics.chordListGapSize - width
                             }
 
                             Text {
                                 text: textRow.modelData.description
 
-                                font.family: Theme.font
+                                font.family: ThemeFonts.font
                                 font.pointSize: 12
 
-                                color: Theme.text
+                                color: ThemeColors.text
                             }
                         }
                     }

@@ -8,7 +8,7 @@ import qs.components.sidebar
 import qs.sidebar.widgets.workspaces
 
 SidebarThemePill {
-    height: ((rp.count - 1) * (Theme.workspaceButtonHeightInactive + Theme.generalSpacing)) + Theme.workspaceButtonHeightActive + Theme.sidebarPadding
+    height: ((rp.count - 1) * (ThemeMetrics.workspaceButtonHeightInactive + ThemeMetrics.generalSpacing)) + ThemeMetrics.workspaceButtonHeightActive + ThemeMetrics.sidebarPadding
     
     ListView {
         id: rp
@@ -16,9 +16,9 @@ SidebarThemePill {
         width: parent.width
         height: parent.height
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Theme.generalSpacing
-        topMargin: Theme.generalPadding / 2
-        bottomMargin: Theme.generalPadding / 2
+        spacing: ThemeMetrics.generalSpacing
+        topMargin: ThemeMetrics.generalPadding / 2
+        bottomMargin: ThemeMetrics.generalPadding / 2
 
         delegate: WorkspaceButton {
             required property var modelData

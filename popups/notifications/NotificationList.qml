@@ -26,11 +26,11 @@ LazyLoader {
             }
 
             margins {
-                top: Theme.notifPaddingSize
-                right: Theme.notifPaddingSize
+                top: ThemeMetrics.notifPaddingSize
+                right: ThemeMetrics.notifPaddingSize
             }
 
-            width: Theme.notifWidth
+            width: ThemeMetrics.notifWidth
 
             color: "transparent"
 
@@ -46,7 +46,7 @@ LazyLoader {
 
             ColumnLayout {
                 id: column
-                spacing: Theme.notifPaddingSize
+                spacing: ThemeMetrics.notifPaddingSize
 
                 Repeater {
                     model: Notifications.trackedNotifications
