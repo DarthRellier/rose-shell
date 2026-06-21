@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
+import qs
 import qs.services
 
 LazyLoader {
@@ -25,12 +26,11 @@ LazyLoader {
             }
 
             margins {
-                top: 8
-                right: 8
+                top: Theme.notifPaddingSize
+                right: Theme.notifPaddingSize
             }
 
-            width: 300
-            // height: column.height
+            width: Theme.notifWidth
 
             color: "transparent"
 
@@ -46,7 +46,7 @@ LazyLoader {
 
             ColumnLayout {
                 id: column
-                spacing: 8
+                spacing: Theme.notifPaddingSize
 
                 Repeater {
                     model: Notifications.trackedNotifications

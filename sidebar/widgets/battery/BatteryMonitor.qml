@@ -9,7 +9,7 @@ SidebarThemePill {
     Column {
         id: batteryColumn
         anchors.centerIn: parent
-        spacing: 5
+        spacing: Theme.smallSpacing
 
         Text {
             text: `${getSymbol(Battery.battery.percentage, Battery.battery.state == 1)}`

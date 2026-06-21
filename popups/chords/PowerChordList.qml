@@ -1,4 +1,4 @@
-import QtQuick
+import qs.popups.chords
 
 ChordList {
     targetName: "powerChordList"

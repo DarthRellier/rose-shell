@@ -1,12 +1,9 @@
 pragma ComponentBehavior: Bound
 
-import Quickshell
 import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import qs
-import qs.services
 import qs.components.general
 
 Rectangle {
@@ -16,26 +13,25 @@ Rectangle {
     property bool hasImage: modelData.image || modelData.appIcon
     property list<NotificationAction> actualActions: modelData.actions.filter(action => action.text.trim() != "")
 
-    implicitHeight: contentRow.height + 16
+    implicitHeight: contentRow.height + Theme.generalPadding
 
     color: Theme.overlay
-    radius: 8
+    radius: Theme.notifRadius
 
     border.color: modelData.urgency == NotificationUrgency.Critical ? Theme.love : root.modelData.urgency == NotificationUrgency.Low ? Theme.foam : Theme.rose
-    border.width: 2
+    border.width: Theme.generalBorder
 
     RowLayout {
         id: contentRow
-        spacing: 8
+        spacing: Theme.notifPaddingSize
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
-            bottom: actionRow.top
 
-            topMargin: 8
-            bottomMargin: 8
-            leftMargin: 8
+            topMargin: Theme.notifPaddingSize
+            bottomMargin: Theme.notifPaddingSize
+            leftMargin: Theme.notifPaddingSize
         }
 
         Image {
@@ -43,10 +39,8 @@ Rectangle {
 
             source: getImageSource(root.modelData)
 
-            Layout.preferredHeight: 50
-            Layout.preferredWidth: 50
-            // Layout.preferredHeight: 100
-            // Layout.preferredWidth: 100
+            Layout.preferredHeight: Theme.notifIconSize
+            Layout.preferredWidth: Theme.notifIconSize
 
             Component.onCompleted: {
                 console.info(height.toString() + " " + width.toString());
@@ -98,9 +92,8 @@ Rectangle {
                 color: root.modelData.urgency == NotificationUrgency.Critical ? Theme.love : root.modelData.urgency == NotificationUrgency.Low ? Theme.foam : Theme.rose
 
                 Layout.fillWidth: true
-                Layout.rightMargin: 32
+                Layout.rightMargin: Theme.notifRightMargin * 2
                 Layout.topMargin: 0
-                Layout.bottomMargin: 0
 
                 wrapMode: Text.WordWrap
                 elide: Text.ElideRight
@@ -119,10 +112,9 @@ Rectangle {
 
                 Layout.fillWidth: true
                 Layout.fillHeight: !root.hasImage ? true : false
-                Layout.rightMargin: 16
-                Layout.bottomMargin: root.actualActions.length == 0 ? 0 : 2
+                Layout.rightMargin: Theme.notifRightMargin
 
-                maximumLineCount: 4
+                maximumLineCount: Theme.notifMaxLines
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
 
@@ -135,13 +127,7 @@ Rectangle {
 
             RowLayout {
                 id: actionRow
-                spacing: 4
-                // anchors {
-                //     bottom: parent.bottom
-                //     left: parent.left
-                //     right: parent.right
-                //     bottomMargin: actionButtons.height > 0 ? 8 : 0
-                // }
+                spacing: Theme.notifPaddingSize
 
                 Repeater {
                     id: actionButtons
@@ -152,13 +138,12 @@ Rectangle {
                         text: modelData.text
                         pointSize: 10
 
-                        backgroundRadius: 16
+                        backgroundRadius: Theme.notifRadius
                         heightPadding: 0
-                        widthPadding: 5
+                        widthPadding: 0
 
                         Layout.fillWidth: true
-                        Layout.topMargin: 2
-                        Layout.rightMargin: 8
+                        Layout.rightMargin: Theme.notifRightMargin
 
                         onClicked: modelData.invoke()
                     }

@@ -32,7 +32,7 @@ SidebarThemePill {
         }
 
         HSeperator {
-            seperatorWidth: 27.5
+            seperatorWidth: Theme.sidebarPillWidth
             seperatorHeight: 3
         }
 
@@ -56,7 +56,7 @@ SidebarThemePill {
         }
 
         HSeperator {
-            seperatorWidth: 27.5
+            seperatorWidth: Theme.sidebarPillWidth
             seperatorHeight: 3
         }
 

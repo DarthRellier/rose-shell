@@ -16,8 +16,6 @@ Button {
     property real backgroundRadius
     property real heightPadding: 20
     property real widthPadding: 0
-    property bool autoImplicitHeight: false
-    property bool autoImplicitWidth: false
 
     property bool useSymbolFont: false
 
@@ -26,16 +24,6 @@ Button {
     leftPadding: widthPadding / 2
     rightPadding: widthPadding / 2
 
-    Component.onCompleted: {
-        if (button.autoImplicitHeight) {
-            button.implicitHeight = backgroundRect.implicitHeight
-        }
-
-        if (button.autoImplicitWidth) {
-            button.implicitWidth = backgroundRect.implicitWidth
-        }
-    }
-    
     contentItem: Text {
         id: contentText
         horizontalAlignment: Text.AlignHCenter

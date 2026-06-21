@@ -22,8 +22,8 @@ PanelWindow {
         bottom: true
     }
 
-    implicitWidth: 60
-    exclusiveZone: 40
+    implicitWidth: Theme.fullSidebarWidth
+    exclusiveZone: Theme.fullSidebarWidth - Theme.sidebarCurveSize
 
     color: "transparent"
     Shape {
@@ -38,24 +38,24 @@ PanelWindow {
                 relativeY: root.height
             }
             PathLine {
-                relativeX: 60
+                relativeX: Theme.fullSidebarWidth
                 relativeY: 0
             }
             PathArc {
-                relativeX: -20
-                relativeY: -20
-                radiusX: 20
-                radiusY: 20
+                relativeX: -1 * Theme.sidebarCurveSize
+                relativeY: -1 * Theme.sidebarCurveSize
+                radiusX: Theme.sidebarCurveRadius
+                radiusY: Theme.sidebarCurveRadius
             }
             PathLine {
-                x: 40
-                y: 20
+                x: Theme.fullSidebarWidth - Theme.sidebarCurveSize
+                y: Theme.sidebarCurveSize
             }
             PathArc {
-                relativeX: 20
-                relativeY: -20
-                radiusX: 20
-                radiusY: 20
+                relativeX: Theme.sidebarCurveSize
+                relativeY: -1 * Theme.sidebarCurveSize
+                radiusX: Theme.sidebarCurveRadius
+                radiusY: Theme.sidebarCurveRadius
             }
         }
     }

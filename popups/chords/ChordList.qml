@@ -36,27 +36,25 @@ Item {
                 }
             }
 
-            margins.bottom: 10
-
-            implicitWidth: 260
-            implicitHeight: listColumn.height + 20
+            implicitWidth: Theme.chordListWidth + Theme.chordListPadding
+            implicitHeight: listColumn.height + Theme.generalPadding
 
             color: "transparent"
 
             Rectangle {
-                width: parent.width - 10
+                width: parent.width - Theme.chordListPadding
                 height: parent.height
-                anchors.rightMargin: 10
+                anchors.rightMargin: Theme.chordListPadding
 
                 color: Theme.surface
                 radius: panel.width / 16
 
                 border {
-                    width: 3
+                    width: Theme.generalBorder
                     color: Theme.highlightMed
                 }
 
-                x: root.active ? 0 : 250
+                x: root.active ? 0 : Theme.chordListWidth
 
                 Behavior on x {
                     NumberAnimation {
@@ -85,9 +83,9 @@ Item {
 
                             required property var modelData
 
-                            Layout.leftMargin: 25
-                            Layout.topMargin: 7.5
-                            Layout.bottomMargin: 7.5
+                            Layout.leftMargin: Theme.chordListLeftMargin
+                            Layout.topMargin: Theme.chordListVSpacing / 2
+                            Layout.bottomMargin: Theme.chordListVSpacing / 2
 
                             Text {
                                 text: textRow.modelData.chordName.toUpperCase()
@@ -97,7 +95,7 @@ Item {
 
                                 color: textRow.modelData.modifiers ? Theme.love : Theme.rose
 
-                                Layout.rightMargin: 35 - width
+                                Layout.rightMargin: Theme.chordListGapSize - width
                             }
 
                             Text {

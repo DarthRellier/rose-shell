@@ -22,7 +22,6 @@ SidebarThemeButton {
 
     normalFg: Theme.rose
     pressedFg: Theme.rose
-    implicitWidth: 27.5
 
     onPressed: {
         root.loaded = true;
@@ -38,22 +37,22 @@ SidebarThemeButton {
             anchor.window: root.parentWindowObject
 
             anchor.rect.x: root.parentWindowObject.width
-            anchor.rect.y: root.parentWindowObject.height - root.y - 20
+            anchor.rect.y: root.parentWindowObject.height - root.y
 
-            implicitWidth: 36
-            implicitHeight: column.height + 20
+            implicitWidth: Math.round(Theme.sidebarPillWidth)
+            implicitHeight: column.height + Theme.generalPadding
 
             visible: true
             color: "transparent"
 
             Rectangle {
                 id: contentRect
-                implicitWidth: 28
-                implicitHeight: column.height + 20
+                implicitWidth: Math.ceil(Theme.sidebarPillWidth)
+                implicitHeight: column.height + Theme.generalPadding
                 color: Theme.overlay
                 radius: width / 2
 
-                x: root.active ? 0 : -28
+                x: root.active ? 0 : -1 * Math.ceil(Theme.sidebarPillWidth)
 
                 Behavior on x {
                     NumberAnimation {
@@ -80,8 +79,8 @@ SidebarThemeButton {
 
                             source: modelData.icon
 
-                            Layout.preferredHeight: 24
-                            Layout.preferredWidth: 24
+                            Layout.preferredHeight: Theme.systrayIconSize
+                            Layout.preferredWidth: Theme.systrayIconSize
                             mipmap: true
 
                             MouseArea {

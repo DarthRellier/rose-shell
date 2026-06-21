@@ -13,8 +13,8 @@ PanelWindow {
     id: root
 
     anchors.bottom: true
-    implicitHeight: 50
-    implicitWidth: 200
+    implicitHeight: Theme.osdPopupHeight + Theme.osdPopupBottomPadding
+    implicitWidth: Theme.osdPopupWidth
 
     color: "transparent"
     aboveWindows: true
@@ -32,22 +32,22 @@ PanelWindow {
     Rectangle {
         id: contentRect
 
-        implicitHeight: 40
-        implicitWidth: 200
-        radius: 100
+        implicitHeight: Theme.osdPopupHeight
+        implicitWidth: Theme.osdPopupWidth
+        radius: Theme.osdPopupHeight / 2
 
         color: Theme.overlay
 
         border.width: Theme.generalBorder
         border.color: Theme.highlightMed
 
-        y: 50
+        y: Theme.osdPopupBottomPadding + height
 
         RowLayout {
             anchors.fill: parent
             anchors.verticalCenter: parent.verticalCenter
 
-            spacing: 5
+            spacing: Theme.smallSpacing
 
             Text {
                 text: getAudioSymbol(Audio.muted, Audio.volume * 100)
@@ -72,8 +72,8 @@ PanelWindow {
 
             ProgressBar {
                 id: progressBar
-                Layout.preferredHeight: 10
-                Layout.preferredWidth: 150
+                Layout.preferredHeight: Theme.osdProgressBarHeight
+                Layout.preferredWidth: Theme.osdProgressBarWidth
 
                 background: Rectangle {
                     anchors.fill: parent
@@ -94,7 +94,7 @@ PanelWindow {
                             bottom: parent.bottom
                         }
                         width: progressBar.visualPosition * parent.width
-                        radius: 100
+                        radius: height / 2
                         color: Theme.rose
                     }
                 }
@@ -119,7 +119,7 @@ PanelWindow {
             running: false
 
             onTriggered: {
-                contentRect.y = 50;
+                contentRect.y = Theme.osdPopupBottomPadding + root.height;
             }
         }
 

@@ -13,6 +13,7 @@ SidebarThemeButton {
     property bool inhibit
 
     Image {
+        id: niriIcon
         source: button.inhibit ? Qt.resolvedUrl("../../../assets/icons/niri-icons/niri-rose.svg") : Qt.resolvedUrl("../../../assets/icons/niri-icons/niri-subtle.svg")
 
         width: 30
@@ -24,15 +25,15 @@ SidebarThemeButton {
         fillMode: Image.PreserveAspectFit
     }
     
-    implicitWidth: 27.5
-    implicitHeight: 45
+    implicitWidth: Theme.sidebarPillWidth
+    implicitHeight: niriIcon.height
 
     normalFg: Theme.rose
     pressedFg: Theme.rose
-    pointSize: 10.5
+    // pointSize: 10.5
 
-    topPadding: 10
-    bottomPadding: 10
+    // topPadding: 10
+    // bottomPadding: 10
 
     onPressed: {
         button.inhibit = !button.inhibit

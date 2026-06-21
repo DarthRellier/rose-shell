@@ -2,8 +2,8 @@ import QtQuick
 import qs
 
 Rectangle {
-    implicitWidth: 27.5
-    implicitHeight: childrenRect.height + 20
+    implicitWidth: Theme.sidebarPillWidth
+    implicitHeight: childrenRect.height + Theme.sidebarPadding
     radius: width / 2
 
     color: Theme.overlay
