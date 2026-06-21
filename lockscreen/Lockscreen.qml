@@ -34,6 +34,7 @@ Scope {
 
         LockSurface {
             context: lockContext
+            lockscreen: lock
 
             onUnlockAnimFinished: () => {
                 lock.locked = false;
