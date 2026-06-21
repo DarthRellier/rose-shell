@@ -27,8 +27,6 @@ Singleton {
                 root.paperLabel = labelMatches[1].trim()
                 root.labelIsLight = labelMatches[2] == "light" ? true : false
                 root.paperFileName = paperMatch[1] + paperMatch[2]
-
-                console.info(paperMatch[1] + paperMatch[2])
             }
         }
     }

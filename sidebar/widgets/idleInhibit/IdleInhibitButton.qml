@@ -43,10 +43,6 @@ SidebarThemeButton {
         id: idleBlocker
         window: button.inhibitWindow
         enabled: button.inhibit
-        onEnabledChanged: {
-            console.info("button pressed")
-            console.info(enabled.toString())
-        }
     }
 
     IdleMonitor {
@@ -54,7 +50,6 @@ SidebarThemeButton {
         respectInhibitors: false
         onIsIdleChanged: {
             if (isIdle && idleBlocker.enabled) {
-                console.info("hi")
                 inhibitNotification.running = true
             }
         }

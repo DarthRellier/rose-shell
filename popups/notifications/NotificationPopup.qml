@@ -42,10 +42,6 @@ Rectangle {
             Layout.preferredHeight: Theme.notifIconSize
             Layout.preferredWidth: Theme.notifIconSize
 
-            Component.onCompleted: {
-                console.info(height.toString() + " " + width.toString());
-            }
-
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignRight
 
