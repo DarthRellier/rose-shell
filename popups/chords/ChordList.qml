@@ -43,7 +43,7 @@ Item {
 
             Rectangle {
                 width: parent.width - ThemeMetrics.chordListPadding
-                height: parent.height
+                height: parent.height - ThemeMetrics.chordListPadding / 2
                 anchors.rightMargin: ThemeMetrics.chordListPadding
 
                 color: ThemeColors.surface
